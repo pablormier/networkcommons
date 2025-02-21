@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.filter\_input\_nodes\_not\_in\_pkn
+
+networkcommons.methods.filter\_input\_nodes\_not\_in\_pkn
+=========================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: filter_input_nodes_not_in_pkn

@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.YFilesVisualizer.visualize
+
+networkcommons.visual.YFilesVisualizer.visualize
+================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: YFilesVisualizer.visualize

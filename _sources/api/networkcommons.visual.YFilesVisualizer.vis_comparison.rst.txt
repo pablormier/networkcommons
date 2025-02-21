@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.YFilesVisualizer.vis\_comparison
+
+networkcommons.visual.YFilesVisualizer.vis\_comparison
+======================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: YFilesVisualizer.vis_comparison

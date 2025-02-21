@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.run\_ora
+
+networkcommons.eval.run\_ora
+============================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: run_ora

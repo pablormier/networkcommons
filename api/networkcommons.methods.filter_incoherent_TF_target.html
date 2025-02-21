@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>networkcommons.methods.filter_incoherent_TF_target &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="networkcommons.methods.decompress_moon_result" href="networkcommons.methods.decompress_moon_result.html" />
+    <link rel="prev" title="networkcommons.methods.run_moon_core" href="networkcommons.methods.run_moon_core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#methods">Methods</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#moon">MOON</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.prepare_metab_inputs.html">networkcommons.methods.prepare_metab_inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.is_expressed.html">networkcommons.methods.is_expressed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.filter_pkn_expressed_genes.html">networkcommons.methods.filter_pkn_expressed_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.filter_input_nodes_not_in_pkn.html">networkcommons.methods.filter_input_nodes_not_in_pkn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.keep_controllable_neighbours.html">networkcommons.methods.keep_controllable_neighbours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.keep_observable_neighbours.html">networkcommons.methods.keep_observable_neighbours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.compress_same_children.html">networkcommons.methods.compress_same_children</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.run_moon_core.html">networkcommons.methods.run_moon_core</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">networkcommons.methods.filter_incoherent_TF_target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.decompress_moon_result.html">networkcommons.methods.decompress_moon_result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.reduce_solution_network.html">networkcommons.methods.reduce_solution_network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.translate_res.html">networkcommons.methods.translate_res</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#topological-methods">Topological methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#random-walk-with-restart">Random Walk with Restart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#corneto">CORNETO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#signalingprofiler">SignalingProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#prior-knowledge">Prior Knowledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#evaluation-and-description">Evaluation and description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#utilities">Utilities</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">networkcommons.methods.filter_incoherent_TF_target</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="networkcommons.methods.filter_incoherent_TF_target" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="networkcommons-methods-filter-incoherent-tf-target">
+<h1>networkcommons.methods.filter_incoherent_TF_target<a class="headerlink" href="#networkcommons-methods-filter-incoherent-tf-target" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="networkcommons.methods.filter_incoherent_TF_target">
+<span class="sig-prename descclassname"><span class="pre">networkcommons.methods.</span></span><span class="sig-name descname"><span class="pre">filter_incoherent_TF_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moon_res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TF_reg_net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RNA_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#networkcommons.methods.filter_incoherent_TF_target" title="Link to this definition"></a></dt>
+<dd><p>Filters incoherent TF-target interactions from the meta_network based on
+the given inputs.</p>
+<p>Parameters:
+moon_res (pd.DataFrame): DataFrame
+TF_reg_net (pd.DataFrame): DataFrame containing TF regulatory network.
+meta_network (networkx.Graph): Graph representing the meta network.
+RNA_input (dict): Dictionary containing RNA input values.</p>
+<p>Returns:
+networkx.Graph: Filtered meta network with incoherent TF-target
+interactions removed.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="networkcommons.methods.run_moon_core.html" class="btn btn-neutral float-left" title="networkcommons.methods.run_moon_core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="networkcommons.methods.decompress_moon_result.html" class="btn btn-neutral float-right" title="networkcommons.methods.decompress_moon_result" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

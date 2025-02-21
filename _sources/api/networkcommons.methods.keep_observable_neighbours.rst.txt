@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.keep\_observable\_neighbours
+
+networkcommons.methods.keep\_observable\_neighbours
+===================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: keep_observable_neighbours

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.phospho\_egf\_datatypes
+
+networkcommons.data.omics.phospho\_egf\_datatypes
+=================================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: phospho_egf_datatypes

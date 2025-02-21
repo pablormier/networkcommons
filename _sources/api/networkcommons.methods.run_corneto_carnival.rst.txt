@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.run\_corneto\_carnival
+
+networkcommons.methods.run\_corneto\_carnival
+=============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: run_corneto_carnival

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.add\_pagerank\_scores
+
+networkcommons.methods.add\_pagerank\_scores
+============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: add_pagerank_scores

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.run\_moon\_core
+
+networkcommons.methods.run\_moon\_core
+======================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: run_moon_core

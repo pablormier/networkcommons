@@ -1,0 +1,35 @@
+﻿:github_url: networkcommons.visual.YFilesVisualizer
+
+networkcommons.visual.YFilesVisualizer
+======================================
+
+.. currentmodule:: networkcommons.visual
+
+.. add toctree option to make autodoc generate the pages
+
+.. autoclass:: YFilesVisualizer
+
+     
+     
+     
+
+     
+     
+     
+
+     
+     
+     .. rubric:: Methods
+
+     .. autosummary::
+          :toctree: .
+          :recursive:
+     
+          ~networkcommons.visual.YFilesVisualizer.custom_edge_color_mapping
+          ~networkcommons.visual.YFilesVisualizer.custom_factor_mapping
+          ~networkcommons.visual.YFilesVisualizer.custom_label_styles_mapping
+          ~networkcommons.visual.YFilesVisualizer.custom_node_color_mapping
+          ~networkcommons.visual.YFilesVisualizer.vis_comparison
+          ~networkcommons.visual.YFilesVisualizer.visualize
+     
+     

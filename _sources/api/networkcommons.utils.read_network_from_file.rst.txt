@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.read\_network\_from\_file
+
+networkcommons.utils.read\_network\_from\_file
+==============================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: read_network_from_file

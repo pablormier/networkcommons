@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.prepare\_metab\_inputs
+
+networkcommons.methods.prepare\_metab\_inputs
+=============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: prepare_metab_inputs

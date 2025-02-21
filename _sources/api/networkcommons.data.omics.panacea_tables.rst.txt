@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.panacea\_tables
+
+networkcommons.data.omics.panacea\_tables
+=========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: panacea_tables

@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.color\_edges
+
+networkcommons.visual.NetworkXVisualizer.color\_edges
+=====================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.color_edges

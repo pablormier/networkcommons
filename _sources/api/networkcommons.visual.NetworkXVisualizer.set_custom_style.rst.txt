@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.set\_custom\_style
+
+networkcommons.visual.NetworkXVisualizer.set\_custom\_style
+===========================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.set_custom_style

@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.visualize\_network\_sign\_consistent
+
+networkcommons.visual.NetworkXVisualizer.visualize\_network\_sign\_consistent
+=============================================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.visualize_network_sign_consistent

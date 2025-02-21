@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.cptac\_extend\_dataframe
+
+networkcommons.data.omics.cptac\_extend\_dataframe
+==================================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: cptac_extend_dataframe

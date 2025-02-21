@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.plot\_rank
+
+networkcommons.visual.plot\_rank
+================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: plot_rank

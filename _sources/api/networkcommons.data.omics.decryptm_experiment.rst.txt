@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.decryptm\_experiment
+
+networkcommons.data.omics.decryptm\_experiment
+==============================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: decryptm_experiment

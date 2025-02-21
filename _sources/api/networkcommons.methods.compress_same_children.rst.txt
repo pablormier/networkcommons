@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.compress\_same\_children
+
+networkcommons.methods.compress\_same\_children
+===============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: compress_same_children

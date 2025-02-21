@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.color\_nodes
+
+networkcommons.visual.NetworkXVisualizer.color\_nodes
+=====================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.color_nodes

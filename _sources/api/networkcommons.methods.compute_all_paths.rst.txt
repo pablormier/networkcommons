@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.compute\_all\_paths
+
+networkcommons.methods.compute\_all\_paths
+==========================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: compute_all_paths

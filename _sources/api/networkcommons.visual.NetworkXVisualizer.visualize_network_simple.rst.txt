@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.visualize\_network\_simple
+
+networkcommons.visual.NetworkXVisualizer.visualize\_network\_simple
+===================================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.visualize_network_simple

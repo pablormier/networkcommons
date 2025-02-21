@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.build\_heatmap\_with\_tree
+
+networkcommons.visual.build\_heatmap\_with\_tree
+================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: build_heatmap_with_tree

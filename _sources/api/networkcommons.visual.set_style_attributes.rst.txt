@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.set\_style\_attributes
+
+networkcommons.visual.set\_style\_attributes
+============================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: set_style_attributes

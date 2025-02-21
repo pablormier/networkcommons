@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.shuffle\_dict\_keys
+
+networkcommons.eval.shuffle\_dict\_keys
+=======================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: shuffle_dict_keys

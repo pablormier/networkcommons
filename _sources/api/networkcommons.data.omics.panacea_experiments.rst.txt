@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.panacea\_experiments
+
+networkcommons.data.omics.panacea\_experiments
+==============================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: panacea_experiments

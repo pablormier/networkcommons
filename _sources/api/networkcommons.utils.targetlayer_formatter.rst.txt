@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.targetlayer\_formatter
+
+networkcommons.utils.targetlayer\_formatter
+===========================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: targetlayer_formatter

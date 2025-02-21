@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.create\_heatmap
+
+networkcommons.visual.create\_heatmap
+=====================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: create_heatmap

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_mean\_closeness
+
+networkcommons.eval.get\_mean\_closeness
+========================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_mean_closeness

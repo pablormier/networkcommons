@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.datasets
+
+networkcommons.data.omics.datasets
+==================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: datasets

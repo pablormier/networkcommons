@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.get\_ensembl\_mappings
+
+networkcommons.data.omics.get\_ensembl\_mappings
+================================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: get_ensembl_mappings

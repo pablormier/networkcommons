@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_connected\_targets
+
+networkcommons.eval.get\_connected\_targets
+===========================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_connected_targets

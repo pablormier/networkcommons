@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette 2: Using multiple methods to infer the networks &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity" href="3_evaluation_offt_path.html" />
+    <link rel="prev" title="Vignette 1: Introduction to NetworkCommons" href="1_quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette 2: Using multiple methods to infer the networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Loading-preprocessed-transcriptomics-data">1. Loading preprocessed transcriptomics data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Network-inference">2. Network inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#2.1-Topological-methods:-shortest-paths,-all-paths">2.1 Topological methods: shortest paths, all paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.2-Diffusion-like-methods:-Personalised-PageRank">2.2 Diffusion-like methods: Personalised PageRank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.3-Integer-linear-programming:-CORNETO">2.3 Integer linear programming: CORNETO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette 2: Using multiple methods to infer the networks</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/2_multiple_methods.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-2:-Using-multiple-methods-to-infer-the-networks">
+<h1>Vignette 2: Using multiple methods to infer the networks<a class="headerlink" href="#Vignette-2:-Using-multiple-methods-to-infer-the-networks" title="Link to this heading"></a></h1>
+<p>Welcome to our second vignette! Here we assume you already know the basics of <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code>. If you don’t, please check our <a class="reference external" href="1_quickstart.html">Introduction vignette</a>.</p>
+<p>In this vignette, we will expand on the first one and perform network inference using several methods included in this package. We will start from the most simple, topological methods, to then move on to more complex ones, such as diffusion-like and integer-linear-programming based ones. You can find a more detailed description of the methods in the <a class="reference external" href="../methods.html">dedicated section</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="1.-Loading-preprocessed-transcriptomics-data">
+<h2>1. Loading preprocessed transcriptomics data<a class="headerlink" href="#1.-Loading-preprocessed-transcriptomics-data" title="Link to this heading"></a></h2>
+<p>Like in the previous vignette, we will use a specific contrast from the <a class="reference external" href="../datasets.html#panacea">PANACEA</a> (Afatinib versus DMSO in ASPC cell line) to extract the transcription factors that are dysregulated in this scenario.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_estimates</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">panacea_tables</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;ASPC&#39;</span><span class="p">,</span> <span class="n">drug</span><span class="o">=</span><span class="s1">&#39;AFATINIB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;TF_scores&#39;</span><span class="p">)</span>
+<span class="n">dc_estimates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">targetlayer_formatter</span><span class="p">(</span><span class="n">dc_estimates</span><span class="p">,</span> <span class="n">act_col</span><span class="o">=</span><span class="s1">&#39;act&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we have our set of TF measurements, that encodes the effects of the drug-induced perturbation.</p>
+<p>Afatinib targets EGFR by inhibition, so we will create a source dictionary containing the origin of perturbation, EGFR, and the sign of the perturbation (negative, therefore -1).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EGFR&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;sign&#39;</span><span class="p">])</span>
+<span class="n">source_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="n">source_df</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="2.-Network-inference">
+<h2>2. Network inference<a class="headerlink" href="#2.-Network-inference" title="Link to this heading"></a></h2>
+<p>We have now our set of TF measurements, which we will use as footprints of the perturbation induced by Afatinib. We will use these to contextualised a general PPI network retrieved from OmniPath.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_omnipath</span><span class="p">()</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Afatinib targets EGFR by inhibition, so we will create a source dictionary containing the origin of perturbation, EGFR, and the sign of the perturbation (negative, therefore -1).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EGFR&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;sign&#39;</span><span class="p">])</span>
+<span class="n">source_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="n">source_df</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="2.1-Topological-methods:-shortest-paths,-all-paths">
+<h3>2.1 Topological methods: shortest paths, all paths<a class="headerlink" href="#2.1-Topological-methods:-shortest-paths,-all-paths" title="Link to this heading"></a></h3>
+<p>NetworkCommons also includes several topological methods. These methods follow very simple assumptions, and therefore are well suited to be compared against more advanced methodologies.</p>
+<p><strong>Shortest paths</strong></p>
+<p>This method retrieves the shortest path between source and target nodes. In the case where there are many paths with the same length, all these paths will be retrieved.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_path_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_19_0.svg" src="../_images/vignettes_2_multiple_methods_19_0.svg" />
+</div>
+</div>
+<p>We can use the signs of the network to add an additional layer of constrain to the problem by removing the paths which are not coherent in terms of sign. The algorithm computes an overall sign of the path by multiplying the signs of the edges contained in said path, and then evaluates whether perturbation_sign * path_sign = measurement_sign. If it does not, the path is discarded.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_sc_network</span><span class="p">,</span> <span class="n">shortest_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_sc_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;sign_consistent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_22_0.svg" src="../_images/vignettes_2_multiple_methods_22_0.svg" />
+</div>
+</div>
+<p>We used the measurements to select which paths we keep and which paths don’t make sense, given our observed measurements. For cases in which we don’t have a sign of a measurement, we can infer the signs by evaluating the agreement of the paths on the sign of the downstream measurement. For this, we must not provide the <code class="docutils literal notranslate"><span class="pre">run_sign_consistency()</span></code> function with a target dictionary. It will then infer the signs of the downstream layer and then return the dictionary with the inferred signs.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_sc_network_inferred</span><span class="p">,</span> <span class="n">shortest_sc_list_inferred</span><span class="p">,</span> <span class="n">inferred_signs</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_sc_network_inferred</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">inferred_signs</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;sign_consistent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_25_0.svg" src="../_images/vignettes_2_multiple_methods_25_0.svg" />
+</div>
+</div>
+<p><strong>All paths</strong></p>
+<p>As an alternative method, we can retrieve all possible paths (within a limit, due to computational constrains) between source and measurements layers. This might help us capture additional biological information which might not be available when considering more restrictive methods, such as shortest paths.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_paths_network</span><span class="p">,</span> <span class="n">all_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_all_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">depth_cutoff</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">all_paths_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_28_0.svg" src="../_images/vignettes_2_multiple_methods_28_0.svg" />
+</div>
+</div>
+<p>Like in the previous case, we can apply an additional constrain by removing non-coherent paths in terms of signed interactions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">allpaths_sc_network</span><span class="p">,</span> <span class="n">allpaths_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">all_paths_network</span><span class="p">,</span> <span class="n">all_paths_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">allpaths_sc_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;sign_consistent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_31_0.svg" src="../_images/vignettes_2_multiple_methods_31_0.svg" />
+</div>
+</div>
+</section>
+<section id="2.2-Diffusion-like-methods:-Personalised-PageRank">
+<h3>2.2 Diffusion-like methods: Personalised PageRank<a class="headerlink" href="#2.2-Diffusion-like-methods:-Personalised-PageRank" title="Link to this heading"></a></h3>
+<p>Several other methods follow a heat diffusion philosophy: “heat” propagates using the network topology and the “hottest” nodes are in the perturbation/measurement layers, cooling down the further away from these layers a node is.</p>
+<p>In our approach, we use personalised PageRank (PPR), in which the probabilities of the random walker are altered, as a computationally inexpensive approach to this philosophy.</p>
+<p>We compute PPR values starting from both perturbation and measurement layers, and then by applying a threshold (top % nodes with highest PPR value) we retrieve only the network which is most accessible from these two layers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">add_pagerank_scores</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">personalize_for</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">add_pagerank_scores</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">personalize_for</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+
+<span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">compute_ppr_overlap</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">percentage</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can use a path-recover method, such as shortest paths or all paths, to retrieve a smaller subnetwork.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_ppr_network</span><span class="p">,</span> <span class="n">shortest_ppr_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_ppr_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_37_0.svg" src="../_images/vignettes_2_multiple_methods_37_0.svg" />
+</div>
+</div>
+<p>We can also add sign consistency checks:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_sc_ppr_network</span><span class="p">,</span> <span class="n">shortest_sc_ppr_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">shortest_ppr_network</span><span class="p">,</span> <span class="n">shortest_ppr_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_sc_ppr_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;sign_consistent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_40_0.svg" src="../_images/vignettes_2_multiple_methods_40_0.svg" />
+</div>
+</div>
+</section>
+<section id="2.3-Integer-linear-programming:-CORNETO">
+<h3>2.3 Integer linear programming: CORNETO<a class="headerlink" href="#2.3-Integer-linear-programming:-CORNETO" title="Link to this heading"></a></h3>
+<p>Last, we will use Carnival via CORNETO, which incorporates more advanced approaches. However, it is the most computationally expensive of all the methods included in <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>This section of the tutorial uses CORNETO, a package specialised in Integer Linear programming for network inference. Some CORNETO methods (such as Carnival) depend on GUROBI, a third-party solver that holds a commercial license. Therefore, in order to run this part of the code, you will have to install a license in your system. Please check their home page for more information.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corneto_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_corneto_carnival</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">betaWeight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;GUROBI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">corneto_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_2_multiple_methods_45_0.svg" src="../_images/vignettes_2_multiple_methods_45_0.svg" />
+</div>
+</div>
+<p>And we’re done! As you can see, the networks look quite different depending on the methods used to contextualise the PKN. However, how do we know which one is the most “correct” one? In the next vignette, we will start exploring the last module in <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code> we have not talked about: <strong>Evaluation</strong>, where we will try out some strategies to evaluate the performance of the methods. See you soon!</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_quickstart.html" class="btn btn-neutral float-left" title="Vignette 1: Introduction to NetworkCommons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_evaluation_offt_path.html" class="btn btn-neutral float-right" title="Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

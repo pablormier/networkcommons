@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.update\_node\_property
+
+networkcommons.visual.update\_node\_property
+============================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: update_node_property

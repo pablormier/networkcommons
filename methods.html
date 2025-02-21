@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methods &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=1f169f65"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Evaluation strategies" href="benchmarks.html" />
+    <link rel="prev" title="Data" href="datasets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="contents.html">
+            
+              <img src="_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#topological-methods">Topological methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shortest-path">Shortest path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sign-consistency">Sign consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reachability-filter">Reachability filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all-paths">All paths</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#random-walk-with-restart-rwr-methods">Random walk with restart (RWR) methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#page-rank">Page rank</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recursive-enrichment-methods">Recursive enrichment methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#moon">MOON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preprocessing">Preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-compression">Network compression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#moon-scoring">MOON scoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-decompression-and-solution-network-obtention">Network decompression and solution network obtention</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ilp-based-methods">ILP-based methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#corneto-carnival">CORNETO - CARNIVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signalingprofiler">SignalingProfiler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Methods</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/methods.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h1>
+<p>Here you can find a collection of the methods implemented in <strong>NetworkCommons</strong>, along with detailed descriptions.
+If you want to contribute with your own, please check our <a class="reference internal" href="guidelines/guide_2_methods.html"><span class="doc">Contribution guidelines</span></a>.</p>
+<section id="topological-methods">
+<h2>Topological methods<a class="headerlink" href="#topological-methods" title="Link to this heading"></a></h2>
+<section id="shortest-path">
+<span id="details-sp"></span><h3>Shortest path<a class="headerlink" href="#shortest-path" title="Link to this heading"></a></h3>
+<p>The shortest path is an algorithm for finding one or multiple paths that minimize the distance from a set of starting nodes to a set of destination nodes in a weighted graph (<a class="reference external" href="https://doi.org/10.1007/BF01386390">https://doi.org/10.1007/BF01386390</a>).</p>
+<object type="image/svg+xml" data="_static/nc_sp.svg" width="1000px"></object><p><strong>Input:</strong> Set of source and target nodes, (weighted) network graph</p>
+<p><strong>Node weights:</strong> w(v) = 1</p>
+<p><strong>Edge weights:</strong> 0 ≤ w(e) ≤ 1</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-topological"><span class="std std-ref">Topological methods</span></a>.</p>
+</section>
+<section id="sign-consistency">
+<h3>Sign consistency<a class="headerlink" href="#sign-consistency" title="Link to this heading"></a></h3>
+<p>The sign consistency method checks for sign consistency between the nodes in a given graph. Hereby, source and target nodes, as well as the edges in the graph have an assigned sign.</p>
+<object type="image/svg+xml" data="_static/nc_sign.svg" width="1000px"></object><p><strong>Input:</strong> Set of source and target nodes (with a sign for up- or downregulation), network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ {1, −1}</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1, −1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-topological"><span class="std std-ref">Topological methods</span></a>.</p>
+</section>
+<section id="reachability-filter">
+<h3>Reachability filter<a class="headerlink" href="#reachability-filter" title="Link to this heading"></a></h3>
+<p>The reachability filter generates a network consisting of all reachable nodes from a set of starting nodes.</p>
+<object type="image/svg+xml" data="_static/nc_reach.svg" width="1000px"></object><p><strong>Input:</strong> Set of source nodes, network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ {1}</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-topological"><span class="std std-ref">Topological methods</span></a>.</p>
+</section>
+<section id="all-paths">
+<h3>All paths<a class="headerlink" href="#all-paths" title="Link to this heading"></a></h3>
+<p>All paths find all possible connections between a set of source nodes and a set of target nodes. In contrast to the shortest path method or the sign consistency method it doesn’t take the distance or any sign information into account, respectively.</p>
+<object type="image/svg+xml" data="_static/nc_ap.svg" width="1000px"></object><p><strong>Input:</strong> Set of source and target nodes, network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ {1}</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-topological"><span class="std std-ref">Topological methods</span></a>.</p>
+</section>
+</section>
+<section id="random-walk-with-restart-rwr-methods">
+<h2>Random walk with restart (RWR) methods<a class="headerlink" href="#random-walk-with-restart-rwr-methods" title="Link to this heading"></a></h2>
+<section id="page-rank">
+<h3>Page rank<a class="headerlink" href="#page-rank" title="Link to this heading"></a></h3>
+<p>The Page rank algorithm initially calculates a weight for each node in a graph based on a random walk with restart method. It starts at a set of source or target nodes and determines the importance of the other nodes in the graph based on the structure of the incoming or outgoing edges. It then builds a network considering the highest-ranking nodes starting from each of the source and the target nodes.</p>
+<object type="image/svg+xml" data="_static/nc_ppr.svg" width="1000px" alt="PPR"></object><p><strong>Input:</strong> Set of source and target nodes, network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ {1}</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-rwr"><span class="std std-ref">RWR methods</span></a>.</p>
+</section>
+</section>
+<section id="recursive-enrichment-methods">
+<h2>Recursive enrichment methods<a class="headerlink" href="#recursive-enrichment-methods" title="Link to this heading"></a></h2>
+<section id="moon">
+<h3>MOON<a class="headerlink" href="#moon" title="Link to this heading"></a></h3>
+<p>MOON (meta-footprint method) performs iterative footprint activity scoring and network diffusion from a set of target nodes to generate a sign consistent network (<a class="reference external" href="https://doi.org/10.1101/2024.07.15.603538">https://doi.org/10.1101/2024.07.15.603538</a>). Starting from a set of weighted target nodes it calculates a weight for the next layer of upstream nodes using a univariate linear model. This process is repeated until a set of source nodes or a certain number of steps is reached. Hereby, any source node with an incoherent sign between MOON and the input sign is pruned out along with all incoming and outgoing edges. Additionally, edges between two inconsistent nodes are removed.</p>
+<p><strong>Input:</strong> Set of weighted target nodes (and optionally weighted source nodes), network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ ℝ</p>
+<p><strong>Edge weights:</strong> w(e) ∈ ℝ</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-moon"><span class="std std-ref">MOON</span></a>.</p>
+<section id="preprocessing">
+<h4>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h4>
+<p>The MOON scoring system starts by removing self-interactions and interactions with non-defined signs (neither +1 nor -1). Then, we must add compartimental information to the metabolic measurements that will be used as downstream measurements.
+Then, we filter out those inputs that cannot be mapped to the prior knowledge network.</p>
+</section>
+<section id="network-compression">
+<h4>Network compression<a class="headerlink" href="#network-compression" title="Link to this heading"></a></h4>
+<p>This is one of the most important parts of this vignette. Here, we aim to remove redundant information from the network, in order to reduce its size without compromising the information contained in it. A common example would be the following:</p>
+<object type="image/svg+xml" data="_static/nc_moon_comp_normal.svg" width="1000px" alt="MOON"></object><p>However, in other cases, we would lose information:</p>
+<object type="image/svg+xml" data="_static/nc_moon_comp_edgecases.svg" width="1000px" alt="MOON"></object></section>
+<section id="moon-scoring">
+<h4>MOON scoring<a class="headerlink" href="#moon-scoring" title="Link to this heading"></a></h4>
+<object type="image/svg+xml" data="_static/nc_moon_core.svg" width="1000px" alt="MOON"></object></section>
+<section id="network-decompression-and-solution-network-obtention">
+<h4>Network decompression and solution network obtention<a class="headerlink" href="#network-decompression-and-solution-network-obtention" title="Link to this heading"></a></h4>
+<p>To finish, the compressed nodes are restored to their original state, and the solution network is obtained by establishing a threshold for the MOON scores of the nodes.
+In addition, users can rename the nodes to human-readable names.</p>
+</section>
+</section>
+</section>
+<section id="ilp-based-methods">
+<h2>ILP-based methods<a class="headerlink" href="#ilp-based-methods" title="Link to this heading"></a></h2>
+<section id="corneto-carnival">
+<h3>CORNETO - CARNIVAL<a class="headerlink" href="#corneto-carnival" title="Link to this heading"></a></h3>
+<p>CORNETO (Constraint-based Optimization for the Reconstruction of NETworks from Omics) is a unified network inference method which combines a wide range of network methods including CARNIVAL which is currently implemented in NetworkCommons. CARNIVAL (CAusal Reasoning for Network identification using Integer VALue programming) connects a set of weighted target and source nodes using integer linear programming (ILP) and predicts the sign for the intermediate nodes (<a class="reference external" href="https://doi.org/10.1038/s41540-019-0118-z">https://doi.org/10.1038/s41540-019-0118-z</a>). Thereby, it optimizes a cost function that penalizes the inclusion of edges as well as the removal of target and source nodes. Additionally, it considers a set of constraints that among other things do not allow sign inconsistency.</p>
+<object type="image/svg+xml" data="_static/nc_corneto.svg" width="1000px" alt="MOON"></object><p><strong>Input:</strong> Set of weighted target and source nodes, network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ ℝ</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1, −1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-corneto"><span class="std std-ref">CORNETO</span></a>.</p>
+</section>
+<section id="signalingprofiler">
+<h3>SignalingProfiler<a class="headerlink" href="#signalingprofiler" title="Link to this heading"></a></h3>
+<p>SignalingProfiler (<a class="reference external" href="https://doi.org/10.1038/s41540-024-00417-6">https://doi.org/10.1038/s41540-024-00417-6</a>) Python implementation is a two-steps pipeline.
+In the first step, SignalingProfiler generates the Naïve Network, a hierarchical and multi-layered network between source and target nodes using networkcommons “All paths”.
+Three different layouts can be chosen, defined as one-, two-, or three-layers networks, with an increasing level of deepness.</p>
+<p>Each layer is defined by a different set of molecular functions.
+The molecular function for each protein is obtained by parsing the UNIPROT database GO Molecular Function annotation according to relative GO Ancestor terms.
+This molecular function annotation refers to signal trasduction context: K, kinase; PP, phosphatases; T, transcription factor; O, all the other molecular functions.</p>
+<p>In the one-layer network, the perturbed node is connected to every target and is molecular function agnostic.
+The two-layers network connects the perturbed node to kinases/phosphatases/others (first layer) and then connect the latters to transcription factors (second layer).
+The three-layers network adds another layer between kinases/phosphatases and other signaling proteins.</p>
+<p>In the second step, SignalingProfiler calls “CORNETO - CARNIVAL” to retrieve only sign-consistent edges from the naïve network (removing grey dashed edges).</p>
+<object type="image/svg+xml" data="_static/nc_signalingprofiler.svg" width="1000px" alt="SignalingProfiler"></object><p><strong>Input:</strong> Set of weighted target and source nodes, network graph</p>
+<p><strong>Node weights:</strong> w(v) ∈ ℝ</p>
+<p><strong>Edge weights:</strong> w(e) ∈ {1, −1}</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-signalingprofiler"><span class="std std-ref">SignalingProfiler</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="datasets.html" class="btn btn-neutral float-left" title="Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="benchmarks.html" class="btn btn-neutral float-right" title="Evaluation strategies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

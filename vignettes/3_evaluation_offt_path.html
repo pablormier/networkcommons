@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette 4: Sensitive response to drug perturbation using phosphoproteomics" href="4_evaluation_decryptm.html" />
+    <link rel="prev" title="Vignette 2: Using multiple methods to infer the networks" href="2_multiple_methods.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Loading-preprocessed-transcriptomics-data">1. Loading preprocessed transcriptomics data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Network-inference">2. Network inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-Evaluation-strategy-using-offtarget-recovery">3. Evaluation strategy using offtarget recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#4.-Evaluation-strategy-using-pathway-enrichment-analysis">4. Evaluation strategy using pathway enrichment analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/3_evaluation_offt_path.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-3:-Evaluating-methods-under-two-scenarios:-offtarget-recovery-and-pathway-activity">
+<h1>Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity<a class="headerlink" href="#Vignette-3:-Evaluating-methods-under-two-scenarios:-offtarget-recovery-and-pathway-activity" title="Link to this heading"></a></h1>
+<p>Welcome to our third vignette! Here we assume you already know the basics of <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code>. If you don’t, please check our <a class="reference external" href="1_quickstart.html">first vignette</a>, where we contextualise a simple network, and our <a class="reference external" href="2_multiple_methods.html">second vignette</a>, where we apply different methods to a problem and visualise the different solution networks.</p>
+<p>In this vignette, we will start exploring how we can evaluate the different methods used for network contextualisation. As already hinted at the end of the second vignette, it is not trivial how to decide which method performs better. In <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code>, we have included four strategies to do so, whose details can be found in this <a class="reference external" href="../benchmarks.html">section</a>.</p>
+<p>Here, we will showcase two of them: <a class="reference external" href="../benchmarks.html#offtarget-recovery">offtarget recovery</a> and <a class="reference external" href="../benchmarks.html#pathway-enrichment-analysis">pathway enrichment analysis</a>. In the first one, we aim to recover as many drug offtargets as possible, while in the latter setting, the components of a perturbed pathway should be overrepresented in the solution networks.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">decoupler</span> <span class="k">as</span> <span class="nn">dc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="1.-Loading-preprocessed-transcriptomics-data">
+<h2>1. Loading preprocessed transcriptomics data<a class="headerlink" href="#1.-Loading-preprocessed-transcriptomics-data" title="Link to this heading"></a></h2>
+<p>Like in the previous vignettes, we will use a specific contrast from the <a class="reference external" href="../datasets.html#panacea">PANACEA</a> (Afatinib versus DMSO in ASPC cell line) to extract the transcription factors that are dysregulated in this scenario. We will skip the explanation of the data processing, but it can be found in the <a class="reference external" href="../datasets.html#panacea">PANACEA data section</a>. Here, we will use H1793 cells treated with neratinib (an EGFR inhibitor) vs DMSO as control.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># downstream layer</span>
+<span class="n">dc_estimates</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">panacea_tables</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;H1793&#39;</span><span class="p">,</span> <span class="n">drug</span><span class="o">=</span><span class="s1">&#39;NERATINIB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;TF_scores&#39;</span><span class="p">)</span>
+<span class="n">dc_estimates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">targetlayer_formatter</span><span class="p">(</span><span class="n">dc_estimates</span><span class="p">,</span> <span class="n">act_col</span><span class="o">=</span><span class="s1">&#39;act&#39;</span><span class="p">)</span>
+
+<span class="c1"># upstream layer</span>
+<span class="n">source_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EGFR&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;sign&#39;</span><span class="p">])</span>
+<span class="n">source_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="n">source_df</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="2.-Network-inference">
+<h2>2. Network inference<a class="headerlink" href="#2.-Network-inference" title="Link to this heading"></a></h2>
+<p>Now we have our sources and targets, we will import the PKN from OmniPath:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_omnipath</span><span class="p">()</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will contextualise different subnetworks using different methods.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># topological methods</span>
+<span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+<span class="n">shortest_sc_network</span><span class="p">,</span> <span class="n">shortest_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+<span class="n">all_paths_network</span><span class="p">,</span> <span class="n">all_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_all_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">depth_cutoff</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">allpaths_sc_network</span><span class="p">,</span> <span class="n">allpaths_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">all_paths_network</span><span class="p">,</span> <span class="n">all_paths_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+
+
+<span class="c1"># diffusion-like methods</span>
+<span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">add_pagerank_scores</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">personalize_for</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">add_pagerank_scores</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">personalize_for</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">ppr_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">compute_ppr_overlap</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">percentage</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shortest_ppr_network</span><span class="p">,</span> <span class="n">shortest_ppr_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">ppr_network</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+<span class="n">shortest_sc_ppr_network</span><span class="p">,</span> <span class="n">shortest_sc_ppr_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">shortest_ppr_network</span><span class="p">,</span> <span class="n">shortest_ppr_list</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+
+<span class="c1"># ILP-based</span>
+<span class="n">corneto_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_corneto_carnival</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">betaWeight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;GUROBI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now store the networks in a dictionary to ease handling.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we include all the networks in a dictionary with custom labels</span>
+<span class="n">networks</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;shortest_path&#39;</span><span class="p">:</span> <span class="n">shortest_path_network</span><span class="p">,</span>
+    <span class="s1">&#39;shortest_path_sc&#39;</span><span class="p">:</span> <span class="n">shortest_sc_network</span><span class="p">,</span>
+    <span class="s1">&#39;all_paths&#39;</span><span class="p">:</span> <span class="n">all_paths_network</span><span class="p">,</span>
+    <span class="s1">&#39;all_paths_sc&#39;</span><span class="p">:</span> <span class="n">allpaths_sc_network</span><span class="p">,</span>
+    <span class="s1">&#39;shortest_ppr_network&#39;</span><span class="p">:</span> <span class="n">shortest_ppr_network</span><span class="p">,</span>
+    <span class="s1">&#39;shortest_ppr_sc_network&#39;</span><span class="p">:</span> <span class="n">shortest_sc_ppr_network</span><span class="p">,</span>
+    <span class="s1">&#39;corneto&#39;</span><span class="p">:</span> <span class="n">corneto_network</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="3.-Evaluation-strategy-using-offtarget-recovery">
+<h2>3. Evaluation strategy using offtarget recovery<a class="headerlink" href="#3.-Evaluation-strategy-using-offtarget-recovery" title="Link to this heading"></a></h2>
+<p>Now, we are ready to start our assessment of the methods’ performance! A first evaluation strategy we can use is based on the recovery of offtarget(s) in the solution networks. Here, we assume that the measurements we use as downstream values are a product not only of the perturbation of the primary drug target, but also of the perturbation of one or more offtarget nodes. Therefore, a network that can accurately contextualise these effects, will have a higher share of offtargets among the
+subnetwork nodes. You can find more details about this setting in the <a class="reference external" href="../benchmarks.html#offtarget-recovery">Evaluation strategies details page</a>.</p>
+<p>In this specific case, we want to evaluate whether the networks contain the offtarget MAPKAPK2, as contained in the PANACEA gold standard.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">panacea_gold_standard</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">panacea_gold_standard</span><span class="p">()</span>
+<span class="n">neratinib_offtargets</span> <span class="o">=</span> <span class="n">panacea_gold_standard</span><span class="p">[(</span><span class="n">panacea_gold_standard</span><span class="p">[</span><span class="s1">&#39;cmpd&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;NERATINIB&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">panacea_gold_standard</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sources</span><span class="o">.</span><span class="n">keys</span><span class="p">()))]</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">offtarget_res</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_metric_from_networks</span><span class="p">(</span><span class="n">networks</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_recovered_offtargets</span><span class="p">,</span> <span class="n">offtargets</span><span class="o">=</span><span class="n">neratinib_offtargets</span><span class="p">)</span>
+<span class="n">offtarget_res</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n_offtargets</th>
+      <th>perc_offtargets</th>
+      <th>network</th>
+      <th>type</th>
+      <th>method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>shortest_path</td>
+      <td>real</td>
+      <td>shortest_path</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>shortest_path_sc</td>
+      <td>real</td>
+      <td>shortest_path_sc</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>all_paths</td>
+      <td>real</td>
+      <td>all_paths</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>all_paths_sc</td>
+      <td>real</td>
+      <td>all_paths_sc</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>shortest_ppr_network</td>
+      <td>real</td>
+      <td>shortest_ppr_network</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>shortest_ppr_sc_network</td>
+      <td>real</td>
+      <td>shortest_ppr_sc_network</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>corneto</td>
+      <td>real</td>
+      <td>corneto</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Unfortunately, none of them managed to recover this effect. This might be due to several reasons, but the main limitation is that only offtargets that are reachable from the source node can be considered. Everything not reachable from the source cannot be part of a solution network. In addition, having only one offtarget greatly reduces the statistical power to draw conclusions here (is this one offtarget missing just per chance, or is there a mechanistic explanation behind?). While this
+approach can be useful in some situations, it is equally important to assess whether the results might be biased or not in every case.</p>
+<p>However, this was just an example using one drug and one cell line combination. However, in order to get a more unbiased metric, we can repeat the same analysis using the whole PANACEA dataset. Here, we provide a one_liner that performs systematic network inference using the methods implemented in NetworkCommons, using the different cell line and drug combinations available in the PANACEA dataset. For this, the function <code class="docutils literal notranslate"><span class="pre">nc.eval.get_offtarget_panacea_evaluation()</span></code> wraps the panacea data
+loaders, the current methods, and the evaluation functions, to provide an end-to-end framework to obtain offtarget recovery results across many different biological conditions.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>Please beware that this function is very computationally intensive. A strong computing environment, such as HPC, is recommended for this.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">offtarget_results</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_offtarget_panacea_evaluation</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="s1">&#39;H1793&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="4.-Evaluation-strategy-using-pathway-enrichment-analysis">
+<h2>4. Evaluation strategy using pathway enrichment analysis<a class="headerlink" href="#4.-Evaluation-strategy-using-pathway-enrichment-analysis" title="Link to this heading"></a></h2>
+<p>For the second evaluation setting, we will follow here a very intuitive approach: if a network contextualises properly a given perturbation, a large share of members of the perturbed pathway will appear in the solution network. Therefore, we will perform Overrepresentation analysis between the members of these networks, and a gene set from <a class="reference external" href="https://www.gsea-msigdb.org/gsea/msigdb/cards/BIOCARTA_EGF_PATHWAY">Biocarta</a> containing the members of the EGF canonical pathway, in addition to an
+alternative pathway involving SMRT inhibition by the Tyrosine-Kinase signalling pathway. If the network contextualises properly, the affected pathway(s) will have a higher ORA score (they will be ranked higher than other pathways). You can find more details about this strategy in the <a class="reference external" href="../benchmarks.html#pathway-enrichment-analysis">Evaluation strategies details page</a>.</p>
+<p>First, we neet the pathway signatures from BioCarta, which are available in the MSigDB database.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">signatures</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_resource</span><span class="p">(</span><span class="s1">&#39;MSigDB&#39;</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s1">&#39;human&#39;</span><span class="p">)</span>
+<span class="n">biocarta_elements</span> <span class="o">=</span> <span class="n">signatures</span><span class="p">[</span><span class="n">signatures</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;biocarta_pathways&#39;</span><span class="p">]</span>
+<span class="n">biocarta_elements</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;geneset&#39;</span><span class="p">:</span> <span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;genesymbol&#39;</span><span class="p">:</span> <span class="s1">&#39;target&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">biocarta_elements</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ora_results</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_metric_from_networks</span><span class="p">(</span><span class="n">networks</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">run_ora</span><span class="p">,</span> <span class="n">net</span><span class="o">=</span><span class="n">biocarta_elements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biocarta_elements</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>collection</th>
+      <th>source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>260</th>
+      <td>ICOSLG</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_CTLA4_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>FOSL2</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_RANKL_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>938</th>
+      <td>PLAU</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_FIBRINOLYSIS_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>1091</th>
+      <td>PLAU</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_PLATELETAPP_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>1684</th>
+      <td>BTG1</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_BTG2_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2392873</th>
+      <td>IFNA13</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_INFLAM_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>2397261</th>
+      <td>GSTA2</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_ARENRF2_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>2401665</th>
+      <td>SAG</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_RHODOPSIN_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>2402175</th>
+      <td>GRK1</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_RHODOPSIN_PATHWAY</td>
+    </tr>
+    <tr>
+      <th>2403146</th>
+      <td>SLC25A22</td>
+      <td>biocarta_pathways</td>
+      <td>BIOCARTA_RHODOPSIN_PATHWAY</td>
+    </tr>
+  </tbody>
+</table>
+<p>4803 rows × 3 columns</p>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we manually input the expected perturbed pathways</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BIOCARTA_EGF_PATHWAY&#39;</span><span class="p">,</span> <span class="s1">&#39;BIOCARTA_EGFR_SMRTE_PATHWAY&#39;</span><span class="p">]</span>
+
+<span class="c1"># and we take 10 random pathways to complete the list (some of them might be missing in the vis since an ora score might have not been computed for them)</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="n">elements</span> <span class="o">+</span> <span class="n">biocarta_elements</span><span class="p">[</span><span class="o">~</span><span class="n">biocarta_elements</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">elements</span><span class="p">)]</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">create_heatmap</span><span class="p">(</span><span class="n">ora_results</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_3_evaluation_offt_path_29_0.png" src="../_images/vignettes_3_evaluation_offt_path_29_0.png" />
+</div>
+</div>
+<p>Almost all methods correctly identified the perturbed pathway. Shortest paths performed best, while ILP-based corneto performed worst under this assumption.</p>
+<p>And that was it for now! We hope you found this tutorial helpful. We focused here on strategies to evaluate the networks, showcasing two of them. However, this is just the beginning! We aim to expand this collection of tools and methods by incorporating more data sources, methods, evaluation strategies and visualizations.</p>
+<p>If you have any questions or feedback, or you would like to contribute, please reach out!. In addition, check our Contribution guidelines for <a class="reference external" href="../guidelines/guide_1_data.html">Data</a>, <a class="reference external" href="../guidelines/guide_2_methods.html">Methods</a> and <a class="reference external" href="../guidelines/guide_3_eval.html">Evaluation strategies</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_multiple_methods.html" class="btn btn-neutral float-left" title="Vignette 2: Using multiple methods to infer the networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_evaluation_decryptm.html" class="btn btn-neutral float-right" title="Vignette 4: Sensitive response to drug perturbation using phosphoproteomics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.decoupler\_formatter
+
+networkcommons.utils.decoupler\_formatter
+=========================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: decoupler_formatter

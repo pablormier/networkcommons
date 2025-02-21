@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.lollipop\_plot
+
+networkcommons.visual.lollipop\_plot
+====================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: lollipop_plot

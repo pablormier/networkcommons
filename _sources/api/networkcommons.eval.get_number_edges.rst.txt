@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_number\_edges
+
+networkcommons.eval.get\_number\_edges
+======================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_number_edges

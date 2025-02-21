@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=1f169f65"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Methods" href="methods.html" />
+    <link rel="prev" title="networkcommons.utils.edge_attrs_from_corneto" href="api/networkcommons.utils.edge_attrs_from_corneto.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="contents.html">
+            
+              <img src="_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#omics-data">Omics data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#decryptm">DecryptM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#panacea">PANACEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cptac">CPTAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nci60">NCI60</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phosphoproteomics-in-response-to-egf">Phosphoproteomics in response to EGF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prior-knowledge">Prior Knowledge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#omnipath">OmniPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#liana">Liana</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phosphositeplus">PhosphositePlus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/datasets.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data">
+<h1>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h1>
+<p>NetworkCommons provides a collection of omics datasets and prior knowledge resources. The datasets are available in the form of files that can be downloaded and used for further analysis. The prior knowledge resources are available in the form of networks (either Network objects or pd.DataFrames).
+All the data can be accessed via the NetworkCommons API.
+If you want to contribute with your own, please check our <a class="reference internal" href="guidelines/guide_1_data.html"><span class="doc">Contribution guidelines</span></a>.</p>
+<section id="omics-data">
+<span id="details-omics"></span><h2>Omics data<a class="headerlink" href="#omics-data" title="Link to this heading"></a></h2>
+<p>Below, we provide a list of all the omics datasets currently available in NetworkCommons. For each data, we provide a link to the original publication, a description, processing (if applicable), and a link to the data location.</p>
+<section id="decryptm">
+<span id="details-decryptm"></span><h3>DecryptM<a class="headerlink" href="#decryptm" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> decryptm</p>
+<p><strong>Description:</strong> Drug perturbation proteomics and phosphoproteomics data</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1126/science.ade3925">Jana Zecha et al. Decrypting drug actions and protein modifications by dose- and time-resolved proteomics. Science 380,93-101(2023).</a></p>
+<p><strong>Data location:</strong> <a class="reference external" href="https://www.ebi.ac.uk/pride/archive/projects/PXD037285">PRIDE</a></p>
+<p><strong>Detailed Description:</strong> This dataset contains the profiling of 31 cancer drugs in 13 human cancer cell line models, resulting in 1.8 million dose-response curves. The data includes 47,502 regulated phosphopeptides, 7316 ubiquitinylated peptides, and 546 regulated acetylated peptides.
+Networkcommons contains the files containing, per phosphosite, EC50 values obtained from fitting the intensity values of the 10 drug concentration points to a four-parameter logistic function.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-decryptm"><span class="std std-ref">DecryptM</span></a>.</p>
+</section>
+<section id="panacea">
+<span id="details-panacea"></span><h3>PANACEA<a class="headerlink" href="#panacea" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> panacea</p>
+<p><strong>Description:</strong> Pancancer Analysis of Chemical Entity Activity RNA-Seq data</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1016/j.xcrm.2021.100492">Eugene F. Douglass et al. A community challenge for a pancancer drug mechanism of action inference from perturbational profile data. Cell Reports Medicine (2022).</a></p>
+<p><strong>Data location:</strong> <a class="reference external" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE186341">NCBI GEO</a></p>
+<p><strong>Detailed Description:</strong>       1728 RNAseq profiles of a cell-line perturbed with 32 kinase inhibitors. Cell-lines were treated at a 48-hour IC20 for each drug and RNA was collected at 24 hours to minimize cell-death.
+Samples were prepared and sequences in batches of 96 that included 6 vehicle (DMSO). 2 replicates were taken for each drug-cell-line pair. Originally, this resource served as the basis for a DREAM Challenge assessing
+the accuracy and sensitivity of computational algorithms for de novo drug polypharmacology predictions.
+NetworkCommons provides raw files for countdata and metadata, as retrieved in the original page. In addition, differential expression and TF activity tables are provided.</p>
+<p><strong>Data processing:</strong> The differential expression statistics were obtained via <a class="reference external" href="https://doi.org/10.1093/nar/gkae552">FLOP</a>, using FilterbyExpr and DESeq2, one of the top performer combinations in the benchmarking study.
+The contrasts were set, per cell line, between each drug and the DMSO control. The TF activity tables were obtained also via <a class="reference external" href="https://doi.org/10.1093/nar/gkae552">FLOP</a>, using univariate linear models as implemented
+in <a class="reference external" href="https://doi.org/10.1093/bioadv/vbac016">decoupler</a>.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-panacea"><span class="std std-ref">PANACEA</span></a>.</p>
+</section>
+<section id="cptac">
+<span id="details-cptac"></span><h3>CPTAC<a class="headerlink" href="#cptac" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> CPTAC</p>
+<p><strong>Description:</strong> Clinical Proteomic Tumor Analysis Consortium data</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1158/2159-8290.CD-13-0219">Ellis, M. J. et al. Connecting genomic alterations to cancer biology with proteomics: the NCI Clinical Proteomic Tumor Analysis Consortium. Cancer Discov. 3, 1108–1112 (2013).</a></p>
+<p><strong>Data location:</strong> <a class="reference external" href="https://pdc.cancer.gov/pdc/cptac-pancancer">NIH NCI Proteommic Data Commons</a></p>
+<p><strong>Detailed Description:</strong> This dataset contains data from the Clinical Proteomic Tumor Analysis Consortium. It includes various cancer types and proteomic data.
+We included only the data processed by the University of Michigan team’s pipeline, and then post-processed by the Baylor College of Medicine’s pipeline. Details
+can be found in the STAR Methods of <a class="reference external" href="https://doi.org/10.1016/j.ccell.2023.06.009">‘Proteogenomic Data and Resources for Pan-Cancer Analysis’</a> (i.e., ‘BCM pipeline for pan-cancer multi-omics data harmonization’).</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-cptac"><span class="std std-ref">CPTAC</span></a>.</p>
+</section>
+<section id="nci60">
+<span id="details-nci60"></span><h3>NCI60<a class="headerlink" href="#nci60" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> NCI60</p>
+<p><strong>Description:</strong> NCI-60 cell line data</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1038/nrc1951">Shoemaker, R. The NCI60 human tumour cell line anticancer drug screen. Nat Rev Cancer 6, 813–823 (2006).</a></p>
+<p><strong>Data location:</strong> <a class="reference external" href="https://www.bioconductor.org/packages/release/bioc/html/cosmosR.html">COSMOS R package - Bioconductor</a></p>
+<p><strong>Detailed Description:</strong> This dataset contains data from the NCI-60 cell line panel. It includes three files: TF activities from transcriptomics data, metabolite abundances, and gene reads.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-nci60"><span class="std std-ref">NCI60</span></a>.</p>
+</section>
+<section id="phosphoproteomics-in-response-to-egf">
+<span id="details-pk"></span><h3>Phosphoproteomics in response to EGF<a class="headerlink" href="#phosphoproteomics-in-response-to-egf" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> PhosphoEGF</p>
+<p><strong>Description:</strong> A meta-analysis of phosphoproteomics data in response to EGF stimulation</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2024.10.21.619348v1">Garrido-Rodriguez et al. Evaluating signaling pathway inference from kinase-substrate interactions and phosphoproteomics data. bioRxiv (2024).</a></p>
+<p><strong>Data location:</strong> <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2024.10.21.619348v1.supplementary-material">Supplementary Data files of the manuscript</a></p>
+<p><strong>Detailed Description:</strong> This dataset the results of a meta-analysis of phosphoproteomics data in response to EGF stimulation across different labs and stimulation times. The data is available at two different levels. First, the phosphosite differential abundance is provided for every combination of study and treatment time. In the table, ‘This study’ refers to the data generated in the manuscript. Second, we offer access to the kinase-level activities inerred using decoupleR and the different kinase-substrate networks described in the paper. Briefly, four different networks were employed: A first one based on literature (literature), one based on kinase-substrate interaction prediction via protein language models (phosformer), one based on positionl peptide array screening (kinlibrary) and a combination of all of them (combined).</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-phosphoegf"><span class="std std-ref">Phospho-EGF meta-analysis</span></a>.</p>
+</section>
+</section>
+<section id="prior-knowledge">
+<span id="id2"></span><h2>Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Link to this heading"></a></h2>
+<p>Below, we provide a list of all the prior knowledge resources currently available in NetworkCommons. For each resource, we provide a description and a link to the original publication.</p>
+<section id="omnipath">
+<span id="details-omnipath"></span><h3>OmniPath<a class="headerlink" href="#omnipath" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> omnipath</p>
+<p><strong>Description:</strong> OmniPath database</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1038/nmeth.4077">Türei, D. et al. OmniPath: guidelines and gateway for literature-curated signaling pathway resources. Nat Methods 13, 966–967 (2016).</a></p>
+<p><strong>Detailed Description:</strong> OmniPath is a comprehensive collection of signaling pathways and regulatory interactions. Currently, NetworkCommons include the signed and directed PPI network that can be obtained from Omnipath.Interactions.
+Our aim is to expand the API to more data sources within OmniPath. For more information, please refer to the <a class="reference external" href="https://omnipathdb.org/">OmniPath website</a> and the <a class="reference external" href="https://omnipath.readthedocs.io/">OmniPath documentation page</a>.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-pk"><span class="std std-ref">Prior knowledge</span></a>.</p>
+</section>
+<section id="liana">
+<span id="details-liana"></span><h3>Liana<a class="headerlink" href="#liana" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> liana</p>
+<p><strong>Description:</strong> Liana database</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1038/s41467-022-30755-0">Dimitrov, D., Türei, D., Garrido-Rodriguez, M. et al. Comparison of methods and resources for cell-cell communication inference from single-cell RNA-Seq data. Nat Commun 13, 3224 (2022).</a></p>
+<p><strong>Detailed Description:</strong> The Prior Knowledge from Liana contains ligand-receptor interactions. For more information, please refer to the <a class="reference external" href="https://liana-py.readthedocs.io/en/latest/">Liana documentation page</a>.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-pk"><span class="std std-ref">Prior knowledge</span></a>.</p>
+</section>
+<section id="phosphositeplus">
+<span id="details-phosphositeplus"></span><h3>PhosphositePlus<a class="headerlink" href="#phosphositeplus" title="Link to this heading"></a></h3>
+<p><strong>Alias:</strong> phosphositeplus</p>
+<p><strong>Description:</strong> PhosphositePlus database</p>
+<p><strong>Publication Link:</strong> <a class="reference external" href="https://doi.org/10.1093/nar/gku1267">Hornbeck, P. V. et al. PhosphoSitePlus, 2014: mutations, PTMs and recalibrations. Nucleic Acids Res 43, D512–D520 (2015).</a></p>
+<p><strong>Detailed Description:</strong> PhosphositePlus is a comprehensive resource that contains, among other PTM interactions, kinase-subsrate interactions, which can then be useful to infer kinase activities from phosphoproteomics data.
+For more information, please refer to the <a class="reference external" href="https://www.phosphosite.org/">PhosphositePlus website</a>.</p>
+<p><strong>Functions:</strong> See API documentation for <a class="reference internal" href="api.html#api-pk"><span class="std std-ref">Prior knowledge</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api/networkcommons.utils.edge_attrs_from_corneto.html" class="btn btn-neutral float-left" title="networkcommons.utils.edge_attrs_from_corneto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="methods.html" class="btn btn-neutral float-right" title="Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

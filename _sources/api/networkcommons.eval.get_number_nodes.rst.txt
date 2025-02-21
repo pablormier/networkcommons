@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_number\_nodes
+
+networkcommons.eval.get\_number\_nodes
+======================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_number_nodes

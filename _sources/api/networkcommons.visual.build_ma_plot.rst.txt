@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.build\_ma\_plot
+
+networkcommons.visual.build\_ma\_plot
+=====================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: build_ma_plot

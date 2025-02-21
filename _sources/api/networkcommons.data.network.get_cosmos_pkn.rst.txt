@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.network.get\_cosmos\_pkn
+
+networkcommons.data.network.get\_cosmos\_pkn
+============================================
+
+.. currentmodule:: networkcommons.data.network
+
+.. autofunction:: get_cosmos_pkn

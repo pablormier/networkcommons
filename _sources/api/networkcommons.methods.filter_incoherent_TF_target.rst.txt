@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.filter\_incoherent\_TF\_target
+
+networkcommons.methods.filter\_incoherent\_TF\_target
+=====================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: filter_incoherent_TF_target

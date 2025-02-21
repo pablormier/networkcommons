@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette 1: Introduction to NetworkCommons &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette 2: Using multiple methods to infer the networks" href="2_multiple_methods.html" />
+    <link rel="prev" title="Contribution’s guideline: Evaluation strategies" href="../guidelines/guide_3_eval.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette 1: Introduction to NetworkCommons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Loading-preprocessed-transcriptomics-data">1. Loading preprocessed transcriptomics data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Network-inference">2. Network inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette 1: Introduction to NetworkCommons</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/1_quickstart.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-1:-Introduction-to-NetworkCommons">
+<h1>Vignette 1: Introduction to NetworkCommons<a class="headerlink" href="#Vignette-1:-Introduction-to-NetworkCommons" title="Link to this heading"></a></h1>
+<p>Welcome to <code class="docutils literal notranslate"><span class="pre">NetworkCommons</span></code>! In this initial vignette, we will go through the basics of the package, using one method to create and visualise a contextualised subnetwork.</p>
+<p>In this vignette, we will use a single contrast (Afatinib-treated vs DMSO-treated ASPC cells) from the <a class="reference external" href="../datasets.html#panacea">PANACEA</a> dataset to contextualise a signalling network from <a class="reference external" href="../datasets.html#omnipath">OmniPath</a>. For this, we will:</p>
+<ol class="arabic simple">
+<li><p>Download the data from the server. In this case, the data has already been processed, using filtering + DESeq2 for differential expression analysis, coupled to TF activity estimation using Decoupler-py and CollecTRI</p></li>
+<li><p>Contextualise the network signalling network, using EGFR as perturbation (inhibited by Afatinib) and TFs as measurements, using one contextualization method as an example.</p></li>
+<li><p>Visualise the solution network.</p></li>
+</ol>
+<p>First, we need to import the packages that we’re going to use in this notebook</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="1.-Loading-preprocessed-transcriptomics-data">
+<h2>1. Loading preprocessed transcriptomics data<a class="headerlink" href="#1.-Loading-preprocessed-transcriptomics-data" title="Link to this heading"></a></h2>
+<p>We can see the available datasets, along with some information about them, using the <code class="docutils literal notranslate"><span class="pre">nc.data.omics.datasets</span></code> util function. For more information about the data itself, check the <a class="reference external" href="../datasets.html">Datasets details page</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">datasets</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>description</th>
+      <th>publication_link</th>
+      <th>detailed_description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>decryptm</th>
+      <td>DecryptM</td>
+      <td>Drug perturbation proteomics and phosphoproteomics data</td>
+      <td>https://doi.org/10.1126/science.ade3925</td>
+      <td>This dataset contains the profiling of 31 cancer drugs in 13 human cancer cell line models resulted in 1.8 million dose-response curves, including 47,502 regulated phosphopeptides, 7316 ubiquitinylated peptides, and 546 regulated acetylated peptides.</td>
+    </tr>
+    <tr>
+      <th>panacea</th>
+      <td>Panacea</td>
+      <td>Pancancer Analysis of Chemical Entity Activity RNA-Seq data</td>
+      <td>https://doi.org/10.1016/j.xcrm.2021.100492</td>
+      <td>PANACEA contains dose-response and perturbational profiles for 32 kinase inhibitors in 11 cancer cell lines, in addition to a DMSO control. Originally, this resource served as the basis for a DREAM Challenge assessing the accuracy and sensitivity of computational algorithms for de novo drug polypharmacology predictions.</td>
+    </tr>
+    <tr>
+      <th>CPTAC</th>
+      <td>CPTAC</td>
+      <td>Clinical Proteomic Tumor Analysis Consortium data</td>
+      <td>https://doi.org/10.1158/2159-8290.CD-13-0219</td>
+      <td>This dataset contains data from the Clinical Proteomic Tumor Analysis Consortium. It includes various cancer types and proteomic data.</td>
+    </tr>
+    <tr>
+      <th>NCI60</th>
+      <td>NCI60</td>
+      <td>NCI-60 cell line data</td>
+      <td>https://doi.org/10.1038/nrc1951</td>
+      <td>This dataset contains data from the NCI-60 cell line panel. It includes three files: TF activities from transcriptomics data, metabolite abundances and gene reads.</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>For this vignette, we will use the PANACEA dataset:</p>
+<blockquote>
+<div><p>Eugene F. Douglass et al., A community challenge for a pancancer drug mechanism of action inference from perturbational profile data. <em>Cell Reports Medicine (2022)</em>. <a class="reference external" href="https://doi.org/10.1016/j.xcrm.2021.100492">https://doi.org/10.1016/j.xcrm.2021.100492</a>.</p>
+</div></blockquote>
+<p>PANACEA is a collection of perturbational transcriptomics profiles of 32 drugs and 11 cell lines. Users can retrieve a raw count matrix and metadata associated, but they can also get differential expression estimates directly from the server. For the sake of simplicity, we will do the latter. In this specific processing, we used the filtering strategy from <em>filterbyExpr</em> from the edgeR package, coupled with differential expression analysis with DESeq2. For the TF enrichment, we used CollecTRI as
+GRN and univariate linear model (via decoupler-py) as method.</p>
+<p>In this vignette we will focus on the signalling network from network, thus our measurement layer will be at the TF level.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code> provides a function to covert dataframes to doctionaries containing signs, which is the input that most methods require.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_estimates</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">panacea_tables</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;ASPC&#39;</span><span class="p">,</span> <span class="n">drug</span><span class="o">=</span><span class="s1">&#39;AFATINIB&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;TF_scores&#39;</span><span class="p">)</span>
+<span class="n">dc_estimates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">targetlayer_formatter</span><span class="p">(</span><span class="n">dc_estimates</span><span class="p">,</span> <span class="n">act_col</span><span class="o">=</span><span class="s1">&#39;act&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we have our set of TF measurements, that encodes the effects of the drug-induced perturbation.</p>
+<p>Afatinib targets EGFR by inhibition, so we will create a source dictionary containing the origin of perturbation, EGFR, and the sign of the perturbation (negative, therefore -1).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EGFR&#39;</span><span class="p">],</span>
+                          <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;sign&#39;</span><span class="p">])</span>
+<span class="n">source_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="n">source_df</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="2.-Network-inference">
+<h2>2. Network inference<a class="headerlink" href="#2.-Network-inference" title="Link to this heading"></a></h2>
+<p>The methods included in NetworkCommons require a prior knowledge network, which will be used to obtain a smaller network with only the nodes relevant to the problem selected by the user.</p>
+<p>NetworkCommons provides access to some prior knowledge resources, but users are also welcome to use their own prior knowledge instead. For this, NetworkCommons has several built-in functionalities to convert edge lists (<code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>) into Network objects.</p>
+<p>For example, this pandas DataFrame:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edge_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">edge_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  source target  sign
+0      A      B     1
+1      B      C    -1
+2      C      D     1
+</pre></div></div>
+</div>
+<p>can be easily converted into a Network object:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pk_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">edge_list</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">pk_network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+networkx.classes.digraph.DiGraph
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">pk_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_1_quickstart_20_0.svg" src="../_images/vignettes_1_quickstart_20_0.svg" />
+</div>
+</div>
+<p>Returning to our initial problem, we have obtained our set of TF measurements, which we will use as footprints of the perturbation induced by Afatinib. Here (and in most of the following vignettes), we will leverage the prior knowledge network (PKN) sourced from OmniPath, which contains a curated collection of signalling pathways and regulatory elements. We will use these TF measurements to contextualise this general PKN.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_omnipath</span><span class="p">()</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we are ready to contextualise our prior-knowledge network using the source and measurement layers to (hopefully) gain insights about the dysregulated elements in the network. As an initial example, we will only use one simple method.</p>
+<p>The <a class="reference external" href="../methods.html#shortest-path">shortest path approach</a> retrieves the shortest path between source and target nodes. In the case where there are many paths with the same length, all these paths will be retrieved.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortest_path_network</span><span class="p">,</span> <span class="n">shortest_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we have our solution network! Let’s see how it looks using a simple visualization option:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">shortest_path_network</span><span class="p">)</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_1_quickstart_27_0.svg" src="../_images/vignettes_1_quickstart_27_0.svg" />
+</div>
+</div>
+<p>And that was it! In this vignette we learned how to format source and target layers, perform network inference using the shortest paths method, and to visualise the resulting solution network. If you want to deepen in the functionalities of <code class="docutils literal notranslate"><span class="pre">Networkcommons</span></code>, please check our other vignettes!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../guidelines/guide_3_eval.html" class="btn btn-neutral float-left" title="Contribution’s guideline: Evaluation strategies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_multiple_methods.html" class="btn btn-neutral float-right" title="Vignette 2: Using multiple methods to infer the networks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

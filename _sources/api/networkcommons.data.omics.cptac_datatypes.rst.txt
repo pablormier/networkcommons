@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.cptac\_datatypes
+
+networkcommons.data.omics.cptac\_datatypes
+==========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: cptac_datatypes

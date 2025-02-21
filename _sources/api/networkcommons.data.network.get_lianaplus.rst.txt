@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.network.get\_lianaplus
+
+networkcommons.data.network.get\_lianaplus
+==========================================
+
+.. currentmodule:: networkcommons.data.network
+
+.. autofunction:: get_lianaplus

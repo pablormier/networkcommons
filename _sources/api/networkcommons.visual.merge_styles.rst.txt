@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.merge\_styles
+
+networkcommons.visual.merge\_styles
+===================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: merge_styles

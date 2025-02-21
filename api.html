@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=1f169f65"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="networkcommons.methods.prepare_metab_inputs" href="api/networkcommons.methods.prepare_metab_inputs.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="contents.html">
+            
+              <img src="_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#moon">MOON</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.prepare_metab_inputs.html">networkcommons.methods.prepare_metab_inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.is_expressed.html">networkcommons.methods.is_expressed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.filter_pkn_expressed_genes.html">networkcommons.methods.filter_pkn_expressed_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.filter_input_nodes_not_in_pkn.html">networkcommons.methods.filter_input_nodes_not_in_pkn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.keep_controllable_neighbours.html">networkcommons.methods.keep_controllable_neighbours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.keep_observable_neighbours.html">networkcommons.methods.keep_observable_neighbours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.compress_same_children.html">networkcommons.methods.compress_same_children</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_moon_core.html">networkcommons.methods.run_moon_core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.filter_incoherent_TF_target.html">networkcommons.methods.filter_incoherent_TF_target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.decompress_moon_result.html">networkcommons.methods.decompress_moon_result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.reduce_solution_network.html">networkcommons.methods.reduce_solution_network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.translate_res.html">networkcommons.methods.translate_res</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#topological-methods">Topological methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_shortest_paths.html">networkcommons.methods.run_shortest_paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_sign_consistency.html">networkcommons.methods.run_sign_consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_reachability_filter.html">networkcommons.methods.run_reachability_filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_all_paths.html">networkcommons.methods.run_all_paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.compute_all_paths.html">networkcommons.methods.compute_all_paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#random-walk-with-restart">Random Walk with Restart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.add_pagerank_scores.html">networkcommons.methods.add_pagerank_scores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.compute_ppr_overlap.html">networkcommons.methods.compute_ppr_overlap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#corneto">CORNETO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.methods.run_corneto_carnival.html">networkcommons.methods.run_corneto_carnival</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#signalingprofiler">SignalingProfiler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.methods.run_signalingprofiler.html">networkcommons.methods.run_signalingprofiler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prior-knowledge">Prior Knowledge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.data.network.get_omnipath.html">networkcommons.data.network.get_omnipath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.data.network.get_lianaplus.html">networkcommons.data.network.get_lianaplus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.data.network.get_phosphositeplus.html">networkcommons.data.network.get_phosphositeplus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.data.network.get_cosmos_pkn.html">networkcommons.data.network.get_cosmos_pkn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils">Utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.datasets.html">networkcommons.data.omics.datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.deseq2.html">networkcommons.data.omics.deseq2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.get_ensembl_mappings.html">networkcommons.data.omics.get_ensembl_mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.convert_ensembl_to_gene_symbol.html">networkcommons.data.omics.convert_ensembl_to_gene_symbol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#decryptm">DecryptM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.decryptm_datasets.html">networkcommons.data.omics.decryptm_datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.decryptm_table.html">networkcommons.data.omics.decryptm_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.decryptm_experiment.html">networkcommons.data.omics.decryptm_experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#panacea">PANACEA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.panacea_experiments.html">networkcommons.data.omics.panacea_experiments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.panacea_datatypes.html">networkcommons.data.omics.panacea_datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.panacea_tables.html">networkcommons.data.omics.panacea_tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.panacea_gold_standard.html">networkcommons.data.omics.panacea_gold_standard</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scperturb">scPerturb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.scperturb.html">networkcommons.data.omics.scperturb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.scperturb_metadata.html">networkcommons.data.omics.scperturb_metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.scperturb_datasets.html">networkcommons.data.omics.scperturb_datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cptac">CPTAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.cptac_cohortsize.html">networkcommons.data.omics.cptac_cohortsize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.cptac_fileinfo.html">networkcommons.data.omics.cptac_fileinfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.cptac_table.html">networkcommons.data.omics.cptac_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.cptac_datatypes.html">networkcommons.data.omics.cptac_datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.cptac_extend_dataframe.html">networkcommons.data.omics.cptac_extend_dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nci60">NCI60</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.nci60_datasets.html">networkcommons.data.omics.nci60_datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.nci60_datatypes.html">networkcommons.data.omics.nci60_datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.nci60_table.html">networkcommons.data.omics.nci60_table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#phospho-egf-meta-analysis">Phospho-EGF meta-analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_datatypes.html">networkcommons.data.omics.phospho_egf_datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_tables.html">networkcommons.data.omics.phospho_egf_tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation-and-description">Evaluation and description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_number_nodes.html">networkcommons.eval.get_number_nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_number_edges.html">networkcommons.eval.get_number_edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_mean_degree.html">networkcommons.eval.get_mean_degree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_mean_betweenness.html">networkcommons.eval.get_mean_betweenness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_mean_closeness.html">networkcommons.eval.get_mean_closeness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_connected_targets.html">networkcommons.eval.get_connected_targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_recovered_offtargets.html">networkcommons.eval.get_recovered_offtargets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_graph_metrics.html">networkcommons.eval.get_graph_metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_metric_from_networks.html">networkcommons.eval.get_metric_from_networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_ec50_evaluation.html">networkcommons.eval.get_ec50_evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.run_ora.html">networkcommons.eval.run_ora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.get_phosphorylation_status.html">networkcommons.eval.get_phosphorylation_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.perform_random_controls.html">networkcommons.eval.perform_random_controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.eval.shuffle_dict_keys.html">networkcommons.eval.shuffle_dict_keys</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#visualization">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.NetworkXVisualizer.html">networkcommons.visual.NetworkXVisualizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.YFilesVisualizer.html">networkcommons.visual.YFilesVisualizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.get_styles.html">networkcommons.visual.get_styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.set_style_attributes.html">networkcommons.visual.set_style_attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.merge_styles.html">networkcommons.visual.merge_styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.get_comparison_color.html">networkcommons.visual.get_comparison_color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.get_edge_color.html">networkcommons.visual.get_edge_color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.update_node_property.html">networkcommons.visual.update_node_property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.update_edge_property.html">networkcommons.visual.update_edge_property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.apply_node_style.html">networkcommons.visual.apply_node_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.apply_edge_style.html">networkcommons.visual.apply_edge_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.build_volcano_plot.html">networkcommons.visual.build_volcano_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.build_ma_plot.html">networkcommons.visual.build_ma_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.plot_pca.html">networkcommons.visual.plot_pca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.build_heatmap_with_tree.html">networkcommons.visual.build_heatmap_with_tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.lollipop_plot.html">networkcommons.visual.lollipop_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.create_heatmap.html">networkcommons.visual.create_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.plot_density.html">networkcommons.visual.plot_density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.plot_scatter.html">networkcommons.visual.plot_scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.visual.plot_rank.html">networkcommons.visual.plot_rank</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.to_cornetograph.html">networkcommons.utils.to_cornetograph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.to_networkx.html">networkcommons.utils.to_networkx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.read_network_from_file.html">networkcommons.utils.read_network_from_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.network_from_df.html">networkcommons.utils.network_from_df</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.get_subnetwork.html">networkcommons.utils.get_subnetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.decoupler_formatter.html">networkcommons.utils.decoupler_formatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.targetlayer_formatter.html">networkcommons.utils.targetlayer_formatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.handle_missing_values.html">networkcommons.utils.handle_missing_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.subset_df_with_nodes.html">networkcommons.utils.subset_df_with_nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.node_attrs_from_corneto.html">networkcommons.utils.node_attrs_from_corneto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/networkcommons.utils.edge_attrs_from_corneto.html">networkcommons.utils.edge_attrs_from_corneto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<p>Import NetworkCommons as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+</pre></div>
+</div>
+<section id="methods">
+<span id="api-methods"></span><h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
+<section id="moon">
+<span id="api-moon"></span><h3>MOON<a class="headerlink" href="#moon" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.prepare_metab_inputs.html#networkcommons.methods.prepare_metab_inputs" title="networkcommons.methods.prepare_metab_inputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.prepare_metab_inputs</span></code></a>(metab_input, ...)</p></td>
+<td><p>Prepares the metabolite inputs by adding compartment codes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.is_expressed.html#networkcommons.methods.is_expressed" title="networkcommons.methods.is_expressed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.is_expressed</span></code></a>(x, expressed_genes_entrez)</p></td>
+<td><p>Determines if a gene is expressed based on the given criteria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.filter_pkn_expressed_genes.html#networkcommons.methods.filter_pkn_expressed_genes" title="networkcommons.methods.filter_pkn_expressed_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.filter_pkn_expressed_genes</span></code></a>(...)</p></td>
+<td><p>Filters out unexpressed nodes from the prior knowledge network (PKN).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.filter_input_nodes_not_in_pkn.html#networkcommons.methods.filter_input_nodes_not_in_pkn" title="networkcommons.methods.filter_input_nodes_not_in_pkn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.filter_input_nodes_not_in_pkn</span></code></a>(data, pkn)</p></td>
+<td><p>Filters the input nodes in the 'data' dictionary that are not present in the PKN.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.keep_controllable_neighbours.html#networkcommons.methods.keep_controllable_neighbours" title="networkcommons.methods.keep_controllable_neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.keep_controllable_neighbours</span></code></a>(...)</p></td>
+<td><p>This function filters out nodes from a dictionary of source nodes that are not controllable from the graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.keep_observable_neighbours.html#networkcommons.methods.keep_observable_neighbours" title="networkcommons.methods.keep_observable_neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.keep_observable_neighbours</span></code></a>(...)</p></td>
+<td><p>This function filters out nodes from a dictionary of target nodes that are not observable from the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.compress_same_children.html#networkcommons.methods.compress_same_children" title="networkcommons.methods.compress_same_children"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.compress_same_children</span></code></a>(...)</p></td>
+<td><p>Compresses nodes in the graph that have the same children by relabeling them with a common signature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.run_moon_core.html#networkcommons.methods.run_moon_core" title="networkcommons.methods.run_moon_core"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_moon_core</span></code></a>([upstream_input, ...])</p></td>
+<td><p>Runs the MOON algorithm to iteratively infer MOON scores from downstream nodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.filter_incoherent_TF_target.html#networkcommons.methods.filter_incoherent_TF_target" title="networkcommons.methods.filter_incoherent_TF_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.filter_incoherent_TF_target</span></code></a>(...)</p></td>
+<td><p>Filters incoherent TF-target interactions from the meta_network based on the given inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.decompress_moon_result.html#networkcommons.methods.decompress_moon_result" title="networkcommons.methods.decompress_moon_result"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.decompress_moon_result</span></code></a>(moon_res, ...)</p></td>
+<td><p>Decompresses the moon_res dataframe by mapping the compressed nodes to their corresponding original source using the provided meta_network_compressed_list and the filtered meta_network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.reduce_solution_network.html#networkcommons.methods.reduce_solution_network" title="networkcommons.methods.reduce_solution_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.reduce_solution_network</span></code></a>(moon_res, ...)</p></td>
+<td><p>Reduces the solution network based on MOON score cutoffs and returns the reduced network and attribute table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.translate_res.html#networkcommons.methods.translate_res" title="networkcommons.methods.translate_res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.translate_res</span></code></a>(untranslated_network, ...)</p></td>
+<td><p>Translates the network and attribute table based on the given mapping dataframe.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="topological-methods">
+<span id="api-topological"></span><h3>Topological methods<a class="headerlink" href="#topological-methods" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.run_shortest_paths.html#networkcommons.methods.run_shortest_paths" title="networkcommons.methods.run_shortest_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_shortest_paths</span></code></a>(network, ...[, ...])</p></td>
+<td><p>Calculate the shortest paths between sources and targets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.run_sign_consistency.html#networkcommons.methods.run_sign_consistency" title="networkcommons.methods.run_sign_consistency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_sign_consistency</span></code></a>(network, paths, ...)</p></td>
+<td><p>Calculate the sign consistency between sources and targets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.run_reachability_filter.html#networkcommons.methods.run_reachability_filter" title="networkcommons.methods.run_reachability_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_reachability_filter</span></code></a>(network, ...)</p></td>
+<td><p>Filters out all nodes from the graph which cannot be reached from</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.run_all_paths.html#networkcommons.methods.run_all_paths" title="networkcommons.methods.run_all_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_all_paths</span></code></a>(network, source_dict, ...)</p></td>
+<td><p>Calculate all paths between sources and targets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.compute_all_paths.html#networkcommons.methods.compute_all_paths" title="networkcommons.methods.compute_all_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.compute_all_paths</span></code></a>(network, source, ...)</p></td>
+<td><p>Compute all paths between source and targets.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="random-walk-with-restart">
+<span id="api-rwr"></span><h3>Random Walk with Restart<a class="headerlink" href="#random-walk-with-restart" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.add_pagerank_scores.html#networkcommons.methods.add_pagerank_scores" title="networkcommons.methods.add_pagerank_scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.add_pagerank_scores</span></code></a>(network, ...[, ...])</p></td>
+<td><p>Add PageRank scores to the nodes of the network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.methods.compute_ppr_overlap.html#networkcommons.methods.compute_ppr_overlap" title="networkcommons.methods.compute_ppr_overlap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.compute_ppr_overlap</span></code></a>(network[, ...])</p></td>
+<td><p>Compute the overlap of nodes that exceed the personalized PageRank</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="corneto">
+<span id="api-corneto"></span><h3>CORNETO<a class="headerlink" href="#corneto" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.run_corneto_carnival.html#networkcommons.methods.run_corneto_carnival" title="networkcommons.methods.run_corneto_carnival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_corneto_carnival</span></code></a>(network, ...[, ...])</p></td>
+<td><p>Run the Vanilla Carnival algorithm via CORNETO.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="signalingprofiler">
+<span id="api-signalingprofiler"></span><h2>SignalingProfiler<a class="headerlink" href="#signalingprofiler" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.methods.run_signalingprofiler.html#networkcommons.methods.run_signalingprofiler" title="networkcommons.methods.run_signalingprofiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">methods.run_signalingprofiler</span></code></a>(sources, ...)</p></td>
+<td><p>Contextualize networks by the SignalingProfiler algorithm.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prior-knowledge">
+<span id="api-pk"></span><h2>Prior Knowledge<a class="headerlink" href="#prior-knowledge" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.network.get_omnipath.html#networkcommons.data.network.get_omnipath" title="networkcommons.data.network.get_omnipath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.network.get_omnipath</span></code></a>([genesymbols, ...])</p></td>
+<td><p>Retrieves the Omnipath network with directed interactions and specific criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.network.get_lianaplus.html#networkcommons.data.network.get_lianaplus" title="networkcommons.data.network.get_lianaplus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.network.get_lianaplus</span></code></a>([resource, update])</p></td>
+<td><p>Retrieves the metabolic network used in COSMOS from the server</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.network.get_phosphositeplus.html#networkcommons.data.network.get_phosphositeplus" title="networkcommons.data.network.get_phosphositeplus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.network.get_phosphositeplus</span></code></a>([update])</p></td>
+<td><p>Retrieves the PhosphoSitePlus network from the server</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.network.get_cosmos_pkn.html#networkcommons.data.network.get_cosmos_pkn" title="networkcommons.data.network.get_cosmos_pkn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.network.get_cosmos_pkn</span></code></a>([update])</p></td>
+<td><p>Retrieves the metabolic network used in COSMOS from the server</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="datasets">
+<span id="api-data"></span><h2>Datasets<a class="headerlink" href="#datasets" title="Link to this heading"></a></h2>
+<section id="utils">
+<span id="api-data-utils"></span><h3>Utils<a class="headerlink" href="#utils" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.datasets.html#networkcommons.data.omics.datasets" title="networkcommons.data.omics.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.datasets</span></code></a>()</p></td>
+<td><p>Built-in omics datasets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.deseq2.html#networkcommons.data.omics.deseq2" title="networkcommons.data.omics.deseq2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.deseq2</span></code></a>(counts, metadata, ...[, ...])</p></td>
+<td><p>Runs DESeq2 analysis on the given counts and metadata.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.get_ensembl_mappings.html#networkcommons.data.omics.get_ensembl_mappings" title="networkcommons.data.omics.get_ensembl_mappings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.get_ensembl_mappings</span></code></a>([update])</p></td>
+<td><p>Retrieves the mapping between Ensembl attributes for human genes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.convert_ensembl_to_gene_symbol.html#networkcommons.data.omics.convert_ensembl_to_gene_symbol" title="networkcommons.data.omics.convert_ensembl_to_gene_symbol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.convert_ensembl_to_gene_symbol</span></code></a>(...)</p></td>
+<td><p>Converts Ensembl IDs to gene symbols using an equivalence dataframe, handles partial matches, and summarizes duplicated entries by taking the maximum value.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="decryptm">
+<span id="api-decryptm"></span><h3>DecryptM<a class="headerlink" href="#decryptm" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.decryptm_datasets.html#networkcommons.data.omics.decryptm_datasets" title="networkcommons.data.omics.decryptm_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.decryptm_datasets</span></code></a>([update])</p></td>
+<td><p>Table of all DecryptM datasets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.decryptm_table.html#networkcommons.data.omics.decryptm_table" title="networkcommons.data.omics.decryptm_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.decryptm_table</span></code></a>(experiment, ...)</p></td>
+<td><p>One table of omics data from DecryptM.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.decryptm_experiment.html#networkcommons.data.omics.decryptm_experiment" title="networkcommons.data.omics.decryptm_experiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.decryptm_experiment</span></code></a>(experiment[, ...])</p></td>
+<td><p>Tables from one DecrptM experiment of one omics modality.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="panacea">
+<span id="api-panacea"></span><h3>PANACEA<a class="headerlink" href="#panacea" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.panacea_experiments.html#networkcommons.data.omics.panacea_experiments" title="networkcommons.data.omics.panacea_experiments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.panacea_experiments</span></code></a>([update])</p></td>
+<td><p>Table describing the experiments (drug-cell combinations) contained in the Panacea dataset and merging it with the presence of TF_scores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.panacea_datatypes.html#networkcommons.data.omics.panacea_datatypes" title="networkcommons.data.omics.panacea_datatypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.panacea_datatypes</span></code></a>()</p></td>
+<td><p>Table describing the available data types in the Panacea dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.panacea_tables.html#networkcommons.data.omics.panacea_tables" title="networkcommons.data.omics.panacea_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.panacea_tables</span></code></a>([cell_line, drug, ...])</p></td>
+<td><p>One table of countdata and one table of metadata from Panacea if raw data is selected.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.panacea_gold_standard.html#networkcommons.data.omics.panacea_gold_standard" title="networkcommons.data.omics.panacea_gold_standard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.panacea_gold_standard</span></code></a>([update])</p></td>
+<td><p>Retrieves the gold standard (primary targets and offtargets linked to drugs) used in Panacea from the server.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="scperturb">
+<span id="api-scperturb"></span><h3>scPerturb<a class="headerlink" href="#scperturb" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.scperturb.html#networkcommons.data.omics.scperturb" title="networkcommons.data.omics.scperturb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.scperturb</span></code></a>(dataset)</p></td>
+<td><p>Access an scPerturb dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.scperturb_metadata.html#networkcommons.data.omics.scperturb_metadata" title="networkcommons.data.omics.scperturb_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.scperturb_metadata</span></code></a>()</p></td>
+<td><p>Metadata for the scPerturb deposited datasets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.scperturb_datasets.html#networkcommons.data.omics.scperturb_datasets" title="networkcommons.data.omics.scperturb_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.scperturb_datasets</span></code></a>()</p></td>
+<td><p>List the datasets available in scPerturb.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cptac">
+<span id="api-cptac"></span><h3>CPTAC<a class="headerlink" href="#cptac" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.cptac_cohortsize.html#networkcommons.data.omics.cptac_cohortsize" title="networkcommons.data.omics.cptac_cohortsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.cptac_cohortsize</span></code></a>([update])</p></td>
+<td><p>Table describing the number of tumor and normal samples per CPTAC cancer type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.cptac_fileinfo.html#networkcommons.data.omics.cptac_fileinfo" title="networkcommons.data.omics.cptac_fileinfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.cptac_fileinfo</span></code></a>([update])</p></td>
+<td><p>Table describing the files contained in the CPTAC dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.cptac_table.html#networkcommons.data.omics.cptac_table" title="networkcommons.data.omics.cptac_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.cptac_table</span></code></a>(data_type, ...)</p></td>
+<td><p>One table of omics data from CPTAC.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.cptac_datatypes.html#networkcommons.data.omics.cptac_datatypes" title="networkcommons.data.omics.cptac_datatypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.cptac_datatypes</span></code></a>()</p></td>
+<td><p>List describing the data types available in the CPTAC dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.cptac_extend_dataframe.html#networkcommons.data.omics.cptac_extend_dataframe" title="networkcommons.data.omics.cptac_extend_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.cptac_extend_dataframe</span></code></a>(df)</p></td>
+<td><p>Extends the DataFrame by duplicating rows based on Tumor and Normal columns.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nci60">
+<span id="api-nci60"></span><h3>NCI60<a class="headerlink" href="#nci60" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.nci60_datasets.html#networkcommons.data.omics.nci60_datasets" title="networkcommons.data.omics.nci60_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.nci60_datasets</span></code></a>([update])</p></td>
+<td><p>Table of all NCI60 datasets (cell types).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.nci60_datatypes.html#networkcommons.data.omics.nci60_datatypes" title="networkcommons.data.omics.nci60_datatypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.nci60_datatypes</span></code></a>()</p></td>
+<td><p>Table of all NCI60 data types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.nci60_table.html#networkcommons.data.omics.nci60_table" title="networkcommons.data.omics.nci60_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.nci60_table</span></code></a>(cell_line, data_type)</p></td>
+<td><p>One table of omics data from NCI60.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="phospho-egf-meta-analysis">
+<span id="api-phosphoegf"></span><h3>Phospho-EGF meta-analysis<a class="headerlink" href="#phospho-egf-meta-analysis" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_datatypes.html#networkcommons.data.omics.phospho_egf_datatypes" title="networkcommons.data.omics.phospho_egf_datatypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.phospho_egf_datatypes</span></code></a>()</p></td>
+<td><p>Table describing the available data types in the Phospho EGF dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_tables.html#networkcommons.data.omics.phospho_egf_tables" title="networkcommons.data.omics.phospho_egf_tables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.phospho_egf_tables</span></code></a>([type])</p></td>
+<td><p>A table with the corresponding data type for the phospho EGF dataset.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="evaluation-and-description">
+<span id="api-eval"></span><h2>Evaluation and description<a class="headerlink" href="#evaluation-and-description" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.get_number_nodes.html#networkcommons.eval.get_number_nodes" title="networkcommons.eval.get_number_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_number_nodes</span></code></a>(network)</p></td>
+<td><p>Get the number of nodes in the network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_number_edges.html#networkcommons.eval.get_number_edges" title="networkcommons.eval.get_number_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_number_edges</span></code></a>(network)</p></td>
+<td><p>Get the number of edges in the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.get_mean_degree.html#networkcommons.eval.get_mean_degree" title="networkcommons.eval.get_mean_degree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_mean_degree</span></code></a>(network)</p></td>
+<td><p>Get the mean degree centrality of the network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_mean_betweenness.html#networkcommons.eval.get_mean_betweenness" title="networkcommons.eval.get_mean_betweenness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_mean_betweenness</span></code></a>(network)</p></td>
+<td><p>Get the mean betweenness centrality of the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.get_mean_closeness.html#networkcommons.eval.get_mean_closeness" title="networkcommons.eval.get_mean_closeness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_mean_closeness</span></code></a>(network)</p></td>
+<td><p>Get the mean closeness centrality of the network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_connected_targets.html#networkcommons.eval.get_connected_targets" title="networkcommons.eval.get_connected_targets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_connected_targets</span></code></a>(network, target_dict)</p></td>
+<td><p>Get the number of connected targets in the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.get_recovered_offtargets.html#networkcommons.eval.get_recovered_offtargets" title="networkcommons.eval.get_recovered_offtargets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_recovered_offtargets</span></code></a>(network, ...)</p></td>
+<td><p>Get the number of off-targets recovered by the network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_graph_metrics.html#networkcommons.eval.get_graph_metrics" title="networkcommons.eval.get_graph_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_graph_metrics</span></code></a>(network, target_dict)</p></td>
+<td><p>Get the graph metrics of a network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.get_metric_from_networks.html#networkcommons.eval.get_metric_from_networks" title="networkcommons.eval.get_metric_from_networks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_metric_from_networks</span></code></a>(networks, ...)</p></td>
+<td><p>Get the graph metrics of multiple networks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_ec50_evaluation.html#networkcommons.eval.get_ec50_evaluation" title="networkcommons.eval.get_ec50_evaluation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_ec50_evaluation</span></code></a>(network, ec50_dict)</p></td>
+<td><p>Get the EC50 evaluation of a network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.run_ora.html#networkcommons.eval.run_ora" title="networkcommons.eval.run_ora"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.run_ora</span></code></a>(graph, net[, metric, ascending])</p></td>
+<td><p>Run over-representation analysis on a custom set of genes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.get_phosphorylation_status.html#networkcommons.eval.get_phosphorylation_status" title="networkcommons.eval.get_phosphorylation_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.get_phosphorylation_status</span></code></a>(network, ...)</p></td>
+<td><p>Calculates the phosphorylation status metrics for a given network and dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.eval.perform_random_controls.html#networkcommons.eval.perform_random_controls" title="networkcommons.eval.perform_random_controls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.perform_random_controls</span></code></a>(graph, ...[, ...])</p></td>
+<td><p>Performs random controls of a network by shuffling node labels and running the inference function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.eval.shuffle_dict_keys.html#networkcommons.eval.shuffle_dict_keys" title="networkcommons.eval.shuffle_dict_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval.shuffle_dict_keys</span></code></a>(dictionary, items)</p></td>
+<td><p>Shuffle the keys of a dictionary.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization">
+<span id="api-vis"></span><h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.NetworkXVisualizer.html#networkcommons.visual.NetworkXVisualizer" title="networkcommons.visual.NetworkXVisualizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.NetworkXVisualizer</span></code></a>(network[, color_by])</p></td>
+<td><p>An advanced visualizer that extends <cite>NetworkVisualizerBase</cite> with additional features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.YFilesVisualizer.html#networkcommons.visual.YFilesVisualizer" title="networkcommons.visual.YFilesVisualizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.YFilesVisualizer</span></code></a>(network)</p></td>
+<td><p>A class for visualizing network graphs interactively using the yFiles HTML widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.get_styles.html#networkcommons.visual.get_styles" title="networkcommons.visual.get_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.get_styles</span></code></a>()</p></td>
+<td><p>Return a dictionary containing styles for different types of networks specific to yFiles visualizations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.set_style_attributes.html#networkcommons.visual.set_style_attributes" title="networkcommons.visual.set_style_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.set_style_attributes</span></code></a>(item, base_style)</p></td>
+<td><p>Set attributes for a graph item (node or edge) based on the given styles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.merge_styles.html#networkcommons.visual.merge_styles" title="networkcommons.visual.merge_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.merge_styles</span></code></a>(default_style, custom_style)</p></td>
+<td><p>Merge custom styles with default styles to ensure all necessary fields are present.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.get_comparison_color.html#networkcommons.visual.get_comparison_color" title="networkcommons.visual.get_comparison_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.get_comparison_color</span></code></a>(category, styles)</p></td>
+<td><p>Get the color for nodes or edges based on the comparison category.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.get_edge_color.html#networkcommons.visual.get_edge_color" title="networkcommons.visual.get_edge_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.get_edge_color</span></code></a>(effect, styles)</p></td>
+<td><p>Get the color for an edge based on its effect.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.update_node_property.html#networkcommons.visual.update_node_property" title="networkcommons.visual.update_node_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.update_node_property</span></code></a>(node[, type, value])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.update_edge_property.html#networkcommons.visual.update_edge_property" title="networkcommons.visual.update_edge_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.update_edge_property</span></code></a>(edge[, type, value])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.apply_node_style.html#networkcommons.visual.apply_node_style" title="networkcommons.visual.apply_node_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.apply_node_style</span></code></a>(node, style)</p></td>
+<td><p>Apply the given style to a node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.apply_edge_style.html#networkcommons.visual.apply_edge_style" title="networkcommons.visual.apply_edge_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.apply_edge_style</span></code></a>(edge, style)</p></td>
+<td><p>Apply the given style to an edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.build_volcano_plot.html#networkcommons.visual.build_volcano_plot" title="networkcommons.visual.build_volcano_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.build_volcano_plot</span></code></a>(data[, log2fc, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.build_ma_plot.html#networkcommons.visual.build_ma_plot" title="networkcommons.visual.build_ma_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.build_ma_plot</span></code></a>(data, log2fc, mean_exp)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.plot_pca.html#networkcommons.visual.plot_pca" title="networkcommons.visual.plot_pca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.plot_pca</span></code></a>(dataframe, metadata[, ...])</p></td>
+<td><p>Plots the PCA (Principal Component Analysis) of a dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.build_heatmap_with_tree.html#networkcommons.visual.build_heatmap_with_tree" title="networkcommons.visual.build_heatmap_with_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.build_heatmap_with_tree</span></code></a>(distance_df)</p></td>
+<td><p>Build a heatmap with hierarchical clustering based on a Jaccard distance matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.lollipop_plot.html#networkcommons.visual.lollipop_plot" title="networkcommons.visual.lollipop_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.lollipop_plot</span></code></a>(df, label_col, value_col)</p></td>
+<td><p>Function to plot metrics using a lollipop plot from a DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.create_heatmap.html#networkcommons.visual.create_heatmap" title="networkcommons.visual.create_heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.create_heatmap</span></code></a>(results[, terms, ...])</p></td>
+<td><p>Create a heatmap.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.plot_density.html#networkcommons.visual.plot_density" title="networkcommons.visual.plot_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.plot_density</span></code></a>(df, gene_ids[, ...])</p></td>
+<td><p>Plots density of intensity values for specified genes, including mean and quantile lines, and separates distributions by groups if metadata is provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.visual.plot_scatter.html#networkcommons.visual.plot_scatter" title="networkcommons.visual.plot_scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.plot_scatter</span></code></a>(df[, summarise_df, ...])</p></td>
+<td><p>Plot a scatter plot with customizable column labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.visual.plot_rank.html#networkcommons.visual.plot_rank" title="networkcommons.visual.plot_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visual.plot_rank</span></code></a>(df[, bio_ids, figsize, ...])</p></td>
+<td><p>Plot a protein abundance rank plot.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="utilities">
+<span id="api-utils"></span><h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.to_cornetograph.html#networkcommons.utils.to_cornetograph" title="networkcommons.utils.to_cornetograph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.to_cornetograph</span></code></a>(graph)</p></td>
+<td><p>Convert a networkx graph to a corneto graph, if needed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.utils.to_networkx.html#networkcommons.utils.to_networkx" title="networkcommons.utils.to_networkx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.to_networkx</span></code></a>(graph[, ...])</p></td>
+<td><p>Convert a corneto graph to a networkx graph, if needed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.read_network_from_file.html#networkcommons.utils.read_network_from_file" title="networkcommons.utils.read_network_from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.read_network_from_file</span></code></a>(file_path[, ...])</p></td>
+<td><p>Read network from a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.utils.network_from_df.html#networkcommons.utils.network_from_df" title="networkcommons.utils.network_from_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.network_from_df</span></code></a>(network_df[, ...])</p></td>
+<td><p>Create a network from a DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.get_subnetwork.html#networkcommons.utils.get_subnetwork" title="networkcommons.utils.get_subnetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.get_subnetwork</span></code></a>(network, paths)</p></td>
+<td><p>Creates a subnetwork from a list of paths.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.utils.decoupler_formatter.html#networkcommons.utils.decoupler_formatter" title="networkcommons.utils.decoupler_formatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.decoupler_formatter</span></code></a>(df, columns)</p></td>
+<td><p>Format dataframe to be used by decoupler.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.targetlayer_formatter.html#networkcommons.utils.targetlayer_formatter" title="networkcommons.utils.targetlayer_formatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.targetlayer_formatter</span></code></a>(df[, ...])</p></td>
+<td><p>Format dataframe to be used by the network methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.utils.handle_missing_values.html#networkcommons.utils.handle_missing_values" title="networkcommons.utils.handle_missing_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.handle_missing_values</span></code></a>(df[, threshold, ...])</p></td>
+<td><p>Handles missing values in a DataFrame by filling them with a specified function or value, or dropping the rows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.subset_df_with_nodes.html#networkcommons.utils.subset_df_with_nodes" title="networkcommons.utils.subset_df_with_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.subset_df_with_nodes</span></code></a>(network, dataframe)</p></td>
+<td><p>Subsets a dataframe using the nodes of a network as the index.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.utils.node_attrs_from_corneto.html#networkcommons.utils.node_attrs_from_corneto" title="networkcommons.utils.node_attrs_from_corneto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.node_attrs_from_corneto</span></code></a>(graph)</p></td>
+<td><p>Extract node attributes from a corneto graph to a pandas dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.utils.edge_attrs_from_corneto.html#networkcommons.utils.edge_attrs_from_corneto" title="networkcommons.utils.edge_attrs_from_corneto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.edge_attrs_from_corneto</span></code></a>(graph)</p></td>
+<td><p>Extract edge attributes from a corneto graph to a pandas dataframe.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/networkcommons.methods.prepare_metab_inputs.html" class="btn btn-neutral float-right" title="networkcommons.methods.prepare_metab_inputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

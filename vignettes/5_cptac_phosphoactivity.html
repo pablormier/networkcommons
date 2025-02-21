@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette A: recursive propagation with MOON" href="A_moon.html" />
+    <link rel="prev" title="Vignette 4: Sensitive response to drug perturbation using phosphoproteomics" href="4_evaluation_decryptm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Data-processing">1. Data processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Prior-knowledge-and-inputs">2. Prior knowledge and inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-Network-inference">3. Network inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#4.-Network-evaluation-using-level-of-dysregulation-in-the-phosphoproteome.">4. Network evaluation using level of dysregulation in the phosphoproteome.</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/5_cptac_phosphoactivity.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-5:-Multi-omics-validation---Recovery-of-dysregulated-kinases-in-response-to-cancer-mutations">
+<h1>Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations<a class="headerlink" href="#Vignette-5:-Multi-omics-validation---Recovery-of-dysregulated-kinases-in-response-to-cancer-mutations" title="Link to this heading"></a></h1>
+<p>In this vignette, we will explore another way to evaluate networks, this time using a more biological approach. We will use the Clinical Proteomic Tumor Analysis Consortium (CPTAC) data, a compendium of tissue samples from 10 different cancer types, along with their respective adjacent, healthy tissue, samples.</p>
+<blockquote>
+<div><p>Ellis, M. J. et al. Connecting genomic alterations to cancer biology with proteomics: the NCI Clinical Proteomic Tumor Analysis Consortium. <em>Cancer Discov. 3, 1108–1112 (2013)</em>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Li, Y. et al. Proteogenomic data and resources for pan-cancer analysis. <em>Cancer Cell 41, 1397–1406 (2023)</em>.</p>
+</div></blockquote>
+<p>In this setting, we will use a multiomics approach as follows: * First, we will identify the most differentially abundant receptors in the proteomics profiles between healthy and tumor samples. We assume that if they are differentially abundant, they will be activated/inhibited. * Second, we will use the transcriptomics data to perform TF enrichment analysis, in order to get the TFs that are dysregulated in the tumor samples compared to the healthy control. * Lastly, we will use
+phosphoproteomics to perform kinase activity estimation and then evaluate the level of dysregulation in the resulting subnetwork. Hopefully, we will be able to assess whether these subnetworks contain a higher share of dysregulated elements compared to the overall phosphoproteome, and against random models. For more information about this specific evaluation, please check the details <a class="reference external" href="../benchmarks.html#recovery-of-dysregulated-kinases">here</a>.</p>
+<p>With this vignette, we want to showcase a real example of an end-to-end workflow, starting from raw data and ending in a set of metrics we can use to evaluate network inference methodologies. If you are not familiar with the basics of <strong>Networkcommons</strong>, please refer to our previous vignettes.</p>
+<section id="1.-Data-processing">
+<h2>1. Data processing<a class="headerlink" href="#1.-Data-processing" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">decoupler</span> <span class="k">as</span> <span class="nn">dc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>NetworkCommons provide a series of util functions to retrieve the CPTAC tables in an easy way. We can use the <code class="docutils literal notranslate"><span class="pre">cptac_cohorsize</span></code> function to visualise the different cancer samples, the <code class="docutils literal notranslate"><span class="pre">cptac_fileinfo</span></code> function to visualise the different files, and the <code class="docutils literal notranslate"><span class="pre">cptac_datatypes</span></code>. Finally, we will get the tables using the <code class="docutils literal notranslate"><span class="pre">cptac_table()</span></code> function. We will skip to this last function, but feel free to try them all :)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cptac_transcriptomics_tumor</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_proteomics_tumor</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;proteome&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_phosphoproteomics_tumor</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;phosphoproteome&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;phospho_site_abundance_log2_reference_intensity_normalized_Tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_tumor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_transcriptomics_ctrl</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;RNAseq_gene_RSEM_coding_UQ_1500_log2_Normal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_proteomics_ctrl</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;proteome&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;proteomics_gene_abundance_log2_reference_intensity_normalized_Normal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_phosphoproteomics_ctrl</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;phosphoproteome&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;phospho_site_abundance_log2_reference_intensity_normalized_Normal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cptac_meta</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_table</span><span class="p">(</span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span> <span class="s1">&#39;LSCC&#39;</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">)</span>
+<span class="n">cptac_meta</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The CPTAC raw files contain the Normal and Tumour groups in separate files. In addition, the metadata is set at the patient level, not at the sample level, which is what we look for. This can be handled easily with the <code class="docutils literal notranslate"><span class="pre">cptac_extend_dataframe</span></code> function:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cptac_meta</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">cptac_extend_dataframe</span><span class="p">(</span><span class="n">cptac_meta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cptac_transcriptomics_ctrl</span><span class="p">,</span> <span class="n">cptac_transcriptomics_tumor</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">,</span> <span class="s1">&#39;_tumor&#39;</span><span class="p">))</span>
+<span class="n">proteomics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cptac_proteomics_ctrl</span><span class="p">,</span> <span class="n">cptac_proteomics_tumor</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">,</span> <span class="s1">&#39;_tumor&#39;</span><span class="p">))</span>
+<span class="n">phosphoproteomics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cptac_phosphoproteomics_ctrl</span><span class="p">,</span> <span class="n">cptac_phosphoproteomics_tumor</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_ctrl&#39;</span><span class="p">,</span> <span class="s1">&#39;_tumor&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, since we have duplicated the samples by adding either _ctrl or _tumor suffixes, we need to update the according metadata</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">:</span> <span class="n">transcriptomics</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()})</span>
+<span class="n">transcriptomics_meta</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transcriptomics_meta</span><span class="p">[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;ctrl&#39;</span> <span class="k">if</span> <span class="s1">&#39;_ctrl&#39;</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="s1">&#39;tumor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">transcriptomics_meta</span><span class="p">,</span> <span class="n">cptac_meta</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">transcriptomics_meta</span> <span class="o">=</span> <span class="n">transcriptomics_meta</span><span class="p">[[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_Size_cm&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_necrosis&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proteomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">:</span> <span class="n">proteomics</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()})</span>
+<span class="n">proteomics_meta</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">proteomics_meta</span><span class="p">[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;ctrl&#39;</span> <span class="k">if</span> <span class="s1">&#39;_ctrl&#39;</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="s1">&#39;tumor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proteomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">proteomics_meta</span><span class="p">,</span> <span class="n">cptac_meta</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">proteomics_meta</span> <span class="o">=</span> <span class="n">proteomics_meta</span><span class="p">[[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_Size_cm&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_necrosis&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phosphoproteomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">:</span> <span class="n">phosphoproteomics</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()})</span>
+<span class="n">phosphoproteomics_meta</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phosphoproteomics_meta</span><span class="p">[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;ctrl&#39;</span> <span class="k">if</span> <span class="s1">&#39;_ctrl&#39;</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="s1">&#39;tumor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phosphoproteomics_meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">phosphoproteomics_meta</span><span class="p">,</span> <span class="n">cptac_meta</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">phosphoproteomics_meta</span> <span class="o">=</span> <span class="n">phosphoproteomics_meta</span><span class="p">[[</span><span class="s1">&#39;sample_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_Size_cm&#39;</span><span class="p">,</span> <span class="s1">&#39;Tumor_necrosis&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since NAs in proteomics and phosphoproteomics are quite ubiquitous, we will remove those rows which have a NA content above 10%. Since limma can handle NAs, we will not perform any filling strategy.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">handle_missing_values</span><span class="p">(</span><span class="n">transcriptomics</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of genes removed: 0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proteomics</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">handle_missing_values</span><span class="p">(</span><span class="n">proteomics</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of genes removed: 3318
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phosphoproteomics</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">handle_missing_values</span><span class="p">(</span><span class="n">phosphoproteomics</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of genes removed: 56800
+</pre></div></div>
+</div>
+<p>As a quality control metric, we can plot PCAs to see if there are differences between tumor and control samples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_pca</span><span class="p">(</span><span class="n">transcriptomics</span><span class="p">,</span> <span class="n">transcriptomics_meta</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_22_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_22_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PCA1</th>
+      <th>PCA2</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>106.909831</td>
+      <td>18.647101</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79.127035</td>
+      <td>-14.830272</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>83.073833</td>
+      <td>26.008237</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80.513726</td>
+      <td>17.490579</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>115.026522</td>
+      <td>29.164087</td>
+      <td>ctrl</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_pca</span><span class="p">(</span><span class="n">phosphoproteomics</span><span class="p">,</span> <span class="n">phosphoproteomics_meta</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_23_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_23_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PCA1</th>
+      <th>PCA2</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>43.622306</td>
+      <td>-37.733104</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>44.305112</td>
+      <td>13.214244</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49.847993</td>
+      <td>24.287766</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>59.430243</td>
+      <td>-6.199675</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>48.995198</td>
+      <td>-48.027032</td>
+      <td>ctrl</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_pca</span><span class="p">(</span><span class="n">proteomics</span><span class="p">,</span> <span class="n">proteomics_meta</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_24_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_24_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PCA1</th>
+      <th>PCA2</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>56.460184</td>
+      <td>12.249534</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50.674229</td>
+      <td>11.655027</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>58.424016</td>
+      <td>7.944419</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>62.538869</td>
+      <td>-11.643733</td>
+      <td>ctrl</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>59.310804</td>
+      <td>-21.416609</td>
+      <td>ctrl</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>And there are! We can easily differentiate the healthy and tumor tissues.</p>
+<p>Now, since the data is indexed using ENSEMBL IDs, but our prior-knowledge network is in gene symbols, we will use the <code class="docutils literal notranslate"><span class="pre">get_ensembl_mappings()</span></code> and <code class="docutils literal notranslate"><span class="pre">convert_ensembl_to_gene_symbol()</span></code> to convert them.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensembl_mapping</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">get_ensembl_mappings</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics_renamed</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">convert_ensembl_to_gene_symbol</span><span class="p">(</span><span class="n">transcriptomics</span><span class="p">,</span> <span class="n">ensembl_mapping</span><span class="p">)</span>
+<span class="n">proteomics_renamed</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">convert_ensembl_to_gene_symbol</span><span class="p">(</span><span class="n">proteomics</span><span class="p">,</span> <span class="n">ensembl_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For phosphoproteomics, since we want to keep the phosphosite-level information, we need to translate the ensembl ids and then concatenate them to the phosphosite-specific fifteenmer.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phosphoproteomics</span><span class="p">[[</span><span class="s1">&#39;gene&#39;</span><span class="p">,</span> <span class="s1">&#39;prot&#39;</span><span class="p">,</span> <span class="s1">&#39;psite&#39;</span><span class="p">,</span> <span class="s1">&#39;seq&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">phosphoproteomics</span><span class="p">[</span><span class="s1">&#39;idx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">phosphoproteomics</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phospho_renamed</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">convert_ensembl_to_gene_symbol</span><span class="p">(</span><span class="n">phosphoproteomics</span><span class="p">,</span> <span class="n">ensembl_mapping</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s1">&#39;gene&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phospho_renamed</span><span class="p">[</span><span class="s1">&#39;gene_symbol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phospho_renamed</span><span class="p">[</span><span class="s1">&#39;gene_symbol&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">phospho_renamed</span><span class="p">[</span><span class="s1">&#39;seq&#39;</span><span class="p">]</span>
+<span class="n">phospho_renamed</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;seq&#39;</span><span class="p">,</span> <span class="s1">&#39;prot&#39;</span><span class="p">,</span> <span class="s1">&#39;psite&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will perform differential expression analysis. Since neither of the three files contain raw counts, which is the input for DESeq2 (the implemented DE pipeline in NetworkCommons), we have to use another method. Here, we will use a combination of variance stabilising normalization and limma, via FLOP:</p>
+<blockquote>
+<div><p>Paton et al., Assessing the impact of transcriptomics data analysis pipelines on downstream functional enrichment results. <em>Nucleic Acids Research, 2024</em>.https://doi.org/10.1093/nar/gkae552</p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>Bear in mind that the Poetry environment does not contain any of the necessary R packages to run FLOP. In order to run the following chunks within this notebook, you will have to create a conda environment and change the running interpreter. If you want to use FLOP, please check <a class="reference external" href="https://github.com/saezlab/flop">the FLOP repository</a> for instructions. If you have already your DE files, then you can import them and go directly to the next section.</p>
+</div>
+<p>We need first to export the files to tsv format, both the matrices and metadata.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transcriptomics_renamed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/rna/rna__countdata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">proteomics_renamed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/prot/prot__countdata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">phospho_renamed</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/phospho/phospho__countdata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">transcriptomics_meta</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/rna/rna__metadata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">proteomics_meta</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/prot/prot__metadata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">phosphoproteomics_meta</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/phospho/phospho__metadata.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contrast</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;group1&#39;</span><span class="p">:</span> <span class="s1">&#39;tumor&#39;</span><span class="p">,</span> <span class="s1">&#39;group2&#39;</span><span class="p">:</span> <span class="s1">&#39;ctrl&#39;</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">contrast</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/rna/rna__contrast.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">contrast</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/prot/prot__contrast.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">contrast</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./flop_input/phospho/phospho__contrast.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can launch FLOP:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+nextflow<span class="w"> </span>-C<span class="w"> </span><span class="nv">$HOME</span>/flop/flop.config<span class="w"> </span>run<span class="w"> </span><span class="nv">$HOME</span>/flop/flop.nf<span class="w"> </span>-params-file<span class="w"> </span><span class="nv">$HOME</span>/networkcommons/flop_run/params_flop.json<span class="w"> </span>-profile<span class="w"> </span>desktop<span class="w"> </span>--data_folder<span class="w"> </span><span class="nv">$HOME</span>/networkcommons/data/flop_input<span class="w"> </span>--outdir<span class="w"> </span>.
+</pre></div>
+</div>
+</div>
+</div>
+<p>All done! Now we can reimport the files as dataframes:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_transcr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./flop_results/diffexp/rna__deresults.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
+<span class="n">de_transcr</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">de_transcr</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;__unfiltered__log2quant+limma__tumor_v_ctrl__rna__NA&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">de_prot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./flop_results/diffexp/prot__deresults.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
+<span class="n">de_prot</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">de_prot</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;__unfiltered__log2quant+limma__tumor_v_ctrl__prot__NA&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">de_phospho</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./flop_results/diffexp/phospho__deresults.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
+<span class="n">de_phospho</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">de_phospho</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;__unfiltered__log2quant+limma__tumor_v_ctrl__phospho__NA&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="2.-Prior-knowledge-and-inputs">
+<h2>2. Prior knowledge and inputs<a class="headerlink" href="#2.-Prior-knowledge-and-inputs" title="Link to this heading"></a></h2>
+<p>Now that we have our data preprocessed, we can proceed to defining the inputs of the network inference methods. For the upstream layer, we will identify the most abundant receptors (using information from LIANA) in the proteome. For the downstream layer, we will perform TF activity estimation using the transcriptomics data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liana_receptors</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_lianaplus</span><span class="p">()</span>
+<span class="n">receptors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">liana_receptors</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="n">receptors_prot</span> <span class="o">=</span> <span class="n">de_prot</span><span class="p">[</span><span class="n">de_prot</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">receptors</span><span class="p">)]</span>
+<span class="n">top_receptors</span> <span class="o">=</span> <span class="n">receptors_prot</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;stat&#39;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">abs</span><span class="p">(),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">source_dict</span> <span class="o">=</span> <span class="n">top_receptors</span><span class="p">[</span><span class="s1">&#39;stat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see the overall abundance of these receptors in the original data, as well as the differential abundance between groups for each of the selected receptors.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_rank</span><span class="p">(</span><span class="n">proteomics_renamed</span><span class="p">,</span> <span class="n">bio_ids</span><span class="o">=</span><span class="n">source_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;gene_symbol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_46_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_46_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_density</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">proteomics_renamed</span><span class="p">,</span> <span class="n">gene_ids</span><span class="o">=</span><span class="n">source_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;gene_symbol&#39;</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">proteomics_meta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_47_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_47_0.png" />
+</div>
+</div>
+<p>All these receptors are downregulated in the tumor samples. Since the intensity distributions are quite separated between tumor and control samples, we might think that they are interesting in order to explain the mechanisms of disease we aim to capture.</p>
+<p>Now, we can perform TF activity estimation and use them as downstream measurements. We will use decoupler-py coupled with the CollecTRI GRN.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collectri</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_collectri</span><span class="p">()</span>
+<span class="n">tfs</span> <span class="o">=</span> <span class="n">collectri</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">values</span>
+<span class="n">decoupler_input</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">decoupler_formatter</span><span class="p">(</span><span class="n">de_transcr</span><span class="p">,</span> <span class="s1">&#39;stat&#39;</span><span class="p">)</span>
+<span class="n">dc_estimates</span><span class="p">,</span> <span class="n">dc_pvals</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">run_ulm</span><span class="p">(</span><span class="n">decoupler_input</span><span class="p">,</span> <span class="n">collectri</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">targetlayer_formatter</span><span class="p">(</span><span class="n">dc_estimates</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will perform Kinase activity estimation using PhosphoSitePlus. We will then use this information to evaluate the network on the basis of wether its nodes are overall more dysregulated than the overall phosphoproteome landscape.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phosphositeplus</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_phosphositeplus</span><span class="p">()</span>
+<span class="n">phosphositeplus</span> <span class="o">=</span> <span class="n">phosphositeplus</span><span class="p">[</span><span class="n">phosphositeplus</span><span class="p">[</span><span class="s1">&#39;KIN_ORGANISM&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;human&#39;</span><span class="p">]</span>
+<span class="n">phosphositeplus</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phosphositeplus</span><span class="p">[</span><span class="s1">&#39;SUB_GENE&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">phosphositeplus</span><span class="p">[</span><span class="s1">&#39;SITE_+/-7_AA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">phosphositeplus</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;KINASE&#39;</span><span class="p">:</span> <span class="s1">&#39;source&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">phosphositeplus</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">phosphositeplus</span> <span class="o">=</span> <span class="n">phosphositeplus</span><span class="p">[[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">]]</span>
+<span class="n">phosphositeplus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>source</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>HRI</td>
+      <td>Eif2s1_MILLSELSRRRIRSI</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>HRI</td>
+      <td>EIF2S1_RILLSELSR______</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>HRI</td>
+      <td>EIF2S1_MILLSELSRRRIRSI</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>HRI</td>
+      <td>EIF2S1_IEGMILLSELSRRRI</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PKCD</td>
+      <td>Sdc4_MKKKDEGSYDLGKKP</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kinases</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">phosphositeplus</span><span class="o">.</span><span class="n">source</span><span class="p">)</span> <span class="c1"># get total number of kinases</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">kinases</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+445
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decoupler_input_kin</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">decoupler_formatter</span><span class="p">(</span><span class="n">de_phospho</span><span class="p">,</span> <span class="s1">&#39;stat&#39;</span><span class="p">)</span> <span class="c1"># get the actual number of inferred kinase activities</span>
+<span class="n">dc_estimates_kin</span><span class="p">,</span> <span class="n">dc_pvals_kin</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">run_zscore</span><span class="p">(</span><span class="n">decoupler_input_kin</span><span class="p">,</span> <span class="n">phosphositeplus</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">kinase_activities</span> <span class="o">=</span> <span class="n">dc_estimates_kin</span><span class="o">.</span><span class="n">T</span>
+<span class="n">kinase_activities</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">kinase_activities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+55
+</pre></div></div>
+</div>
+<p>We could infer activities for 55 out of the 445 available kinases. For the remaining ones, there was not enough data available.</p>
+<p>Lastly, now that we have our data ready, we can get the network from OmniPath.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_omnipath</span><span class="p">()</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="o">~</span><span class="n">network</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">tfs</span><span class="p">)]</span> <span class="c1"># we remove communication to the GRN layer</span>
+<span class="n">network</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="3.-Network-inference">
+<h2>3. Network inference<a class="headerlink" href="#3.-Network-inference" title="Link to this heading"></a></h2>
+<p>Now, we can perform network inference with some of the methods we already explored in previous vignette. We will store the networks in a dictionary to ease further downstream analysis.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;shortest_path&#39;</span><span class="p">],</span> <span class="n">shortest_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;shortest_path&#39;</span><span class="p">])</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The network is too large to visualize, you can increase the max_nodes parameter if needed.
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;shortest_sc_path&#39;</span><span class="p">],</span> <span class="n">shortest_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;shortest_path&#39;</span><span class="p">],</span> <span class="n">shortest_paths_list</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;shortest_sc_path&#39;</span><span class="p">])</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;sign_consistent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_64_0.svg" src="../_images/vignettes_5_cptac_phosphoactivity_64_0.svg" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;all_paths&#39;</span><span class="p">],</span> <span class="n">all_paths_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_all_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">depth_cutoff</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;all_paths&#39;</span><span class="p">])</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network_simple</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The network is too large to visualize, you can increase the max_nodes parameter if needed.
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;all_sc_paths&#39;</span><span class="p">],</span> <span class="n">allpaths_sc_list</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;all_paths&#39;</span><span class="p">],</span> <span class="n">all_paths_list</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;all_sc_paths&#39;</span><span class="p">])</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network_simple</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The network is too large to visualize, you can increase the max_nodes parameter if needed.
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;corneto_graph&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_corneto_carnival</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">betaWeight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;GUROBI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">NetworkXVisualizer</span><span class="p">(</span><span class="n">networks</span><span class="p">[</span><span class="s1">&#39;corneto_graph&#39;</span><span class="p">])</span>
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize_network_simple</span><span class="p">(</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">measurements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_70_0.svg" src="../_images/vignettes_5_cptac_phosphoactivity_70_0.svg" />
+</div>
+</div>
+</section>
+<section id="4.-Network-evaluation-using-level-of-dysregulation-in-the-phosphoproteome.">
+<h2>4. Network evaluation using level of dysregulation in the phosphoproteome.<a class="headerlink" href="#4.-Network-evaluation-using-level-of-dysregulation-in-the-phosphoproteome." title="Link to this heading"></a></h2>
+<p>Now, at last, we are in the position to test our hypotheses. In this section, we will use the kinase activities to evaluate whether the inferred networks capture a more extreme dysregulation status (understood as average kinase activity score for the nodes in the network, versus the overall kinase activity) than the random controls (node and measurement label shuffling, but keeping the topology of the network intact). For more information about this benchmark, please refer to the specific
+section in the <a class="reference external" href="../benchmarks.html#recovery-of-dysregulated-kinases">Evaluation strategies page</a>.</p>
+<p>We will first create the random controls that will act as our baseline for the evaluation. We will infer 100 random networks, and then compute the average of all of them.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp_random_controls</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">perform_random_controls</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shortest_path&#39;</span><span class="p">,</span> <span class="n">source_dict</span><span class="o">=</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="o">=</span><span class="n">measurements</span><span class="p">,</span> <span class="n">randomise_measurements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">tfs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ap_random_controls</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">perform_random_controls</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_all_paths</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;all_paths&#39;</span><span class="p">,</span> <span class="n">source_dict</span><span class="o">=</span><span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="o">=</span><span class="n">measurements</span><span class="p">,</span> <span class="n">depth_cutoff</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">randomise_measurements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">tfs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">combined_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">networks</span><span class="p">)</span>
+<span class="n">combined_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sp_random_controls</span><span class="p">)</span>
+<span class="n">combined_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ap_random_controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phospho_results</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_metric_from_networks</span><span class="p">(</span><span class="n">combined_dict</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_phosphorylation_status</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="n">kinase_activities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span><span class="n">phospho_results</span><span class="p">,</span> <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;diff_dysregulation&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_5_cptac_phosphoactivity_78_0.png" src="../_images/vignettes_5_cptac_phosphoactivity_78_0.png" />
+</div>
+</div>
+<p>The results show that our contextualised networks manage to recover a higher share of dysregulation, which means that in this scenario, the network methods perform much better than a random model, especially the CORNETO graph and shortest paths with sign consistency. CORNETO also gets the highest coverage, almost 10% of the nodes are active kinases. Therefore, under this assumption, CORNETO-Carnival would be the top performer.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>This approach has the flaw of having usually low coverage of kinase activities, thus the inferred dysregulation might not come from a representative set of kinases. This evaluation setting is still under development.</p>
+</div>
+<p>And that was it! Here, we conducted and end-to-end analysis of multiomics data, starting from raw intensities to contextualised networks, which we then evaluated. Now it is the time for you to explore the full potential of network contextualisation, and we hope that <strong>Networkcommons</strong> will be helpful along this journey. :)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_evaluation_decryptm.html" class="btn btn-neutral float-left" title="Vignette 4: Sensitive response to drug perturbation using phosphoproteomics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="A_moon.html" class="btn btn-neutral float-right" title="Vignette A: recursive propagation with MOON" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

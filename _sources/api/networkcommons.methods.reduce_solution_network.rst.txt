@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.reduce\_solution\_network
+
+networkcommons.methods.reduce\_solution\_network
+================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: reduce_solution_network

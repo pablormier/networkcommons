@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.apply\_node\_style
+
+networkcommons.visual.apply\_node\_style
+========================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: apply_node_style

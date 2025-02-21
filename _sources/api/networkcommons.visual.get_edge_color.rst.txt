@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.get\_edge\_color
+
+networkcommons.visual.get\_edge\_color
+======================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: get_edge_color

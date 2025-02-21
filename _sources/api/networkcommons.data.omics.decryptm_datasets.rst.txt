@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.decryptm\_datasets
+
+networkcommons.data.omics.decryptm\_datasets
+============================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: decryptm_datasets

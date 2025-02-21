@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.apply\_edge\_style
+
+networkcommons.visual.apply\_edge\_style
+========================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: apply_edge_style

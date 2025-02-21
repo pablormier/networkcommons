@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_recovered\_offtargets
+
+networkcommons.eval.get\_recovered\_offtargets
+==============================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_recovered_offtargets

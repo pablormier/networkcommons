@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.get\_comparison\_color
+
+networkcommons.visual.get\_comparison\_color
+============================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: get_comparison_color

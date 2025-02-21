@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_mean\_betweenness
+
+networkcommons.eval.get\_mean\_betweenness
+==========================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_mean_betweenness

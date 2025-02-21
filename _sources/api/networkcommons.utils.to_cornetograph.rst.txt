@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.to\_cornetograph
+
+networkcommons.utils.to\_cornetograph
+=====================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: to_cornetograph

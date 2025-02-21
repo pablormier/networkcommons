@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.cptac\_table
+
+networkcommons.data.omics.cptac\_table
+======================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: cptac_table

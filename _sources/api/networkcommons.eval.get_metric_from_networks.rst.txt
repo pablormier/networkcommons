@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_metric\_from\_networks
+
+networkcommons.eval.get\_metric\_from\_networks
+===============================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_metric_from_networks

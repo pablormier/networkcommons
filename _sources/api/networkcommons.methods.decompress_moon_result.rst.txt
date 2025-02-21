@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.decompress\_moon\_result
+
+networkcommons.methods.decompress\_moon\_result
+===============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: decompress_moon_result

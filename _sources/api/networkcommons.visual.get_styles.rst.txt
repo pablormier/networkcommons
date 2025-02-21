@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.get\_styles
+
+networkcommons.visual.get\_styles
+=================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: get_styles

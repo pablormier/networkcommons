@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.plot\_density
+
+networkcommons.visual.plot\_density
+===================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: plot_density

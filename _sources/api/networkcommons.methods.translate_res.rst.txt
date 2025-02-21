@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.translate\_res
+
+networkcommons.methods.translate\_res
+=====================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: translate_res

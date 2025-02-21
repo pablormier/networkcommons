@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.edge\_attrs\_from\_corneto
+
+networkcommons.utils.edge\_attrs\_from\_corneto
+===============================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: edge_attrs_from_corneto

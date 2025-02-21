@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>networkcommons.methods.run_sign_consistency &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="networkcommons.methods.run_reachability_filter" href="networkcommons.methods.run_reachability_filter.html" />
+    <link rel="prev" title="networkcommons.methods.run_shortest_paths" href="networkcommons.methods.run_shortest_paths.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#methods">Methods</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api.html#moon">MOON</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#topological-methods">Topological methods</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.run_shortest_paths.html">networkcommons.methods.run_shortest_paths</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">networkcommons.methods.run_sign_consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.run_reachability_filter.html">networkcommons.methods.run_reachability_filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.run_all_paths.html">networkcommons.methods.run_all_paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="networkcommons.methods.compute_all_paths.html">networkcommons.methods.compute_all_paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#random-walk-with-restart">Random Walk with Restart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#corneto">CORNETO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#signalingprofiler">SignalingProfiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#prior-knowledge">Prior Knowledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#evaluation-and-description">Evaluation and description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#utilities">Utilities</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">networkcommons.methods.run_sign_consistency</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="networkcommons.methods.run_sign_consistency" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="networkcommons-methods-run-sign-consistency">
+<h1>networkcommons.methods.run_sign_consistency<a class="headerlink" href="#networkcommons-methods-run-sign-consistency" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="networkcommons.methods.run_sign_consistency">
+<span class="sig-prename descclassname"><span class="pre">networkcommons.methods.</span></span><span class="sig-name descname"><span class="pre">run_sign_consistency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#networkcommons.methods.run_sign_consistency" title="Link to this definition"></a></dt>
+<dd><p>Calculate the sign consistency between sources and targets. If the target
+sign is not provided, infer the sign by majority consensus from the paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>network</strong> (<em>nx.Graph</em>) – The network.</p></li>
+<li><p><strong>paths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – A list containing the shortest paths.</p></li>
+<li><p><strong>source_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – A dictionary containing the sources and sign
+of perturbation.</p></li>
+<li><p><strong>target_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>, </em><em>optional</em>) – A dictionary containing the targets and sign
+of measurements. If None, infer the target signs by consensus.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The subnetwork containing the sign consistent paths.
+list: A list containing the sign consistent paths.
+dict: A dictionary containing the inferred target signs (if target_dict is None).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nx.Graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="networkcommons.methods.run_shortest_paths.html" class="btn btn-neutral float-left" title="networkcommons.methods.run_shortest_paths" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="networkcommons.methods.run_reachability_filter.html" class="btn btn-neutral float-right" title="networkcommons.methods.run_reachability_filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

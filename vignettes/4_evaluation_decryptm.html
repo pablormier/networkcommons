@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette 4: Sensitive response to drug perturbation using phosphoproteomics &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations" href="5_cptac_phosphoactivity.html" />
+    <link rel="prev" title="Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity" href="3_evaluation_offt_path.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Data-processing">1. Data processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Network-inference">2. Network inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-Evaluation-using-sensitivity-to-perturbation">3. Evaluation using sensitivity to perturbation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/4_evaluation_decryptm.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-4:-Sensitive-response-to-drug-perturbation-using-phosphoproteomics">
+<h1>Vignette 4: Sensitive response to drug perturbation using phosphoproteomics<a class="headerlink" href="#Vignette-4:-Sensitive-response-to-drug-perturbation-using-phosphoproteomics" title="Link to this heading"></a></h1>
+<p>The aim of this vignette is to explore a new way of evaluating the networks. In this setting, we assume that the networks that better contextualise the perturbation will have a higher average pEC50 in the nodes included in the solution network, compared to the ones not included. On the contrary, the networks which are not able to contextualise the perturbation will not show differences in the EC50 values of the nodes included or excluded. For more information about this evaluation strategy,
+please check the dedicated <a class="reference external" href="../benchmarks.html#phosphorylation-sensitivity-to-drug-perturbation">section</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">decoupler</span> <span class="k">as</span> <span class="nn">dc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="1.-Data-processing">
+<h2>1. Data processing<a class="headerlink" href="#1.-Data-processing" title="Link to this heading"></a></h2>
+<p>To showcase this strategy, we will use data from the <a class="reference external" href="../datasets.html#decryptm">DecryptM</a> resource, a compendium of 14 different experiments comprising 4 different proteomics profiles and 31 different drugs. This dataset contains 10 different concentration points, which were used to fit logistic curves to obtain sensitivity values (pEC50, which is -log(EC50), higher sensitivity results in a higher pEC50 or a lower EC50). EC50 is the concentration at which the response is halfway between the
+baseline activity and the maximum activity.</p>
+<blockquote>
+<div><p>Jana Zecha et al., Decrypting drug actions and protein modifications by dose- and time-resolved proteomics. <em>Science 380,93-101(2023)</em>. <a class="reference external" href="https://doi.org/10.1126/science.ade3925">https://doi.org/10.1126/science.ade3925</a></p>
+</div></blockquote>
+<p>To see in a nutshell the available experiments from the resource, we can use <code class="docutils literal notranslate"><span class="pre">nc.data.omics.decryptm_datasets</span></code></p>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong></p>
+<p>Here, we assume that the averaging of phosphosite-level information is a good approximation for changes at the protein level. However, this is not necessarily true. For example, in case of proteins with multiple phosphorylation sites, some of them can result in the protein becoming more active, while others can make it become less active. In addition, some proteins become active/inactive only when a minimum of n phosphorylation sites have been phosphorylated. All these examples are ingnored in
+this setting, and thus should be taken into account when interpreting the results.</p>
+</div>
+<p>For the sake of simplicity, we will focus on one drug targeting EGFR. We get the 3 EGFR inhibitors:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decryptm_curves</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">decryptm_table</span><span class="p">(</span><span class="s1">&#39;3_EGFR_Inhibitors&#39;</span><span class="p">,</span> <span class="s1">&#39;Phosphoproteome&#39;</span><span class="p">,</span> <span class="s1">&#39;curves.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We first filter those fittings with a high R2. We define here an arbitrary threshold of 0.9</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span> <span class="o">=</span> <span class="n">decryptm_curves</span><span class="p">[</span><span class="n">decryptm_curves</span><span class="p">[</span><span class="s1">&#39;R2&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mf">0.9</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can extract the information from each sample by splitting the Experiment column:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[[</span><span class="s1">&#39;PTM&#39;</span><span class="p">,</span> <span class="s1">&#39;Cell_line&#39;</span><span class="p">,</span> <span class="s1">&#39;Drug&#39;</span><span class="p">,</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Rep&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;Experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see which drug has the most fitted curves, which will be the one we will choose for this analysis.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;Drug&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Drug
+Afatinib     4054
+Gefitinib    1515
+Dasatinib    1368
+Name: count, dtype: int64
+</pre></div></div>
+</div>
+<p>With 4054 fitted curves, we can continue the analysis focusing in Afatinib.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;Drug&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Afatinib&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We binarise the Regulation column:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;Regulation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">&#39;Regulation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;up&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;down&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, since our prior knowledge network is detailed to the protein level, we need to summarise our phosphosite-specific information. For this, we can just calculate the average across phosphosites and replicates, per protein.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">grouped_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;PTM&#39;</span><span class="p">,</span> <span class="s1">&#39;Cell_line&#39;</span><span class="p">,</span> <span class="s1">&#39;Drug&#39;</span><span class="p">,</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Gene names&#39;</span><span class="p">])[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">grouped_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We discard those proteins which showed no response:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_df</span> <span class="o">=</span> <span class="n">grouped_df</span><span class="p">[</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;Regulation&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we split our dataset in two. On one side, we will use the transcription factors (TFs) for the measurement layer (upregulated or downregulated). The rest of measurements which are not TFs will be used for the evaluation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collectri</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_collectri</span><span class="p">()</span>
+<span class="n">collectri_tfs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">collectri</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="n">grouped_df</span><span class="p">[</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;Gene names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">collectri_tfs</span><span class="p">)]</span>
+<span class="n">measurements</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PTM</th>
+      <th>Cell_line</th>
+      <th>Drug</th>
+      <th>Time</th>
+      <th>Gene names</th>
+      <th>N duplicates</th>
+      <th>Length</th>
+      <th>Missed cleavages</th>
+      <th>Phospho (STY)</th>
+      <th>Max Score</th>
+      <th>...</th>
+      <th>R2</th>
+      <th>Curve RMSE</th>
+      <th>Log EC50 error</th>
+      <th>Curve slope error</th>
+      <th>Curve top error</th>
+      <th>Curve bottom error</th>
+      <th>EC50</th>
+      <th>pEC50</th>
+      <th>Curve effect size</th>
+      <th>Regulation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>37</th>
+      <td>ddPTM</td>
+      <td>A431</td>
+      <td>Afatinib</td>
+      <td>30min</td>
+      <td>AKNA</td>
+      <td>1.00</td>
+      <td>8.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>97.565000</td>
+      <td>...</td>
+      <td>0.930210</td>
+      <td>0.079855</td>
+      <td>0.078054</td>
+      <td>0.326630</td>
+      <td>0.022948</td>
+      <td>0.021961</td>
+      <td>1.081113e-08</td>
+      <td>7.966129</td>
+      <td>-0.633375</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>ddPTM</td>
+      <td>A431</td>
+      <td>Afatinib</td>
+      <td>30min</td>
+      <td>ARHGAP35</td>
+      <td>1.25</td>
+      <td>15.416667</td>
+      <td>0.583333</td>
+      <td>1.166667</td>
+      <td>219.326917</td>
+      <td>...</td>
+      <td>0.951323</td>
+      <td>0.063784</td>
+      <td>0.113077</td>
+      <td>1.232567</td>
+      <td>0.022569</td>
+      <td>0.030057</td>
+      <td>1.907749e-07</td>
+      <td>7.873396</td>
+      <td>-0.673425</td>
+      <td>-0.833333</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>ddPTM</td>
+      <td>A431</td>
+      <td>Afatinib</td>
+      <td>30min</td>
+      <td>ATF7</td>
+      <td>1.20</td>
+      <td>15.400000</td>
+      <td>0.400000</td>
+      <td>1.600000</td>
+      <td>231.716000</td>
+      <td>...</td>
+      <td>0.939197</td>
+      <td>0.046872</td>
+      <td>2.402108</td>
+      <td>0.517590</td>
+      <td>0.020224</td>
+      <td>2.005207</td>
+      <td>2.000098e-03</td>
+      <td>6.252465</td>
+      <td>0.540893</td>
+      <td>-0.200000</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>ddPTM</td>
+      <td>A431</td>
+      <td>Afatinib</td>
+      <td>30min</td>
+      <td>ATRX</td>
+      <td>1.00</td>
+      <td>12.125000</td>
+      <td>1.000000</td>
+      <td>1.250000</td>
+      <td>205.422625</td>
+      <td>...</td>
+      <td>0.925583</td>
+      <td>0.059691</td>
+      <td>0.129673</td>
+      <td>0.607281</td>
+      <td>0.020850</td>
+      <td>0.023965</td>
+      <td>1.983393e-08</td>
+      <td>8.059884</td>
+      <td>-0.060007</td>
+      <td>-0.125000</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>ddPTM</td>
+      <td>A431</td>
+      <td>Afatinib</td>
+      <td>30min</td>
+      <td>BCL3</td>
+      <td>1.10</td>
+      <td>16.000000</td>
+      <td>1.000000</td>
+      <td>1.400000</td>
+      <td>131.791200</td>
+      <td>...</td>
+      <td>0.945352</td>
+      <td>0.093729</td>
+      <td>0.093656</td>
+      <td>0.186224</td>
+      <td>0.040301</td>
+      <td>0.036615</td>
+      <td>7.787948e-09</td>
+      <td>8.132247</td>
+      <td>-0.125451</td>
+      <td>-0.400000</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 60 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ec50_values</span> <span class="o">=</span> <span class="n">grouped_df</span><span class="p">[</span><span class="o">~</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;Gene names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">collectri_tfs</span><span class="p">)]</span>
+<span class="n">ec50_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;Gene names&#39;</span><span class="p">],</span> <span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;pEC50&#39;</span><span class="p">]))</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">ec50_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;ABLIM3&#39;, 8.038036722142818),
+ (&#39;ACACA&#39;, 7.919001347352594),
+ (&#39;ACIN1&#39;, 8.51245270397656),
+ (&#39;ADAM17&#39;, 8.088225031254964),
+ (&#39;ADAR&#39;, 8.209162778966169)]
+</pre></div></div>
+</div>
+</section>
+<section id="2.-Network-inference">
+<h2>2. Network inference<a class="headerlink" href="#2.-Network-inference" title="Link to this heading"></a></h2>
+<p>Afatinib is an EGFR inhibitor, therefore:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;EGFR&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the top 30 most sensitive TFs.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;pEC50&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;Gene names&#39;</span><span class="p">],</span> <span class="n">measurements</span><span class="p">[</span><span class="s1">&#39;Regulation&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we compute the contextualised networks using four different topological methods: shortest paths and all paths, with and without sign consistency.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network_df</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_omnipath</span><span class="p">()</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">network_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will perform network inference with some topology methods and CORNETO-Carnival.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning</strong></p>
+<p>The following code block uses CORNETO, a package specialised in Integer Linear programming for network inference. Some CORNETO methods (such as Carnival) depend on GUROBI, a third-party solver that holds a commercial license. Therefore, in order to run this part of the code, you will have to install a license in your system. Please check their home page for more information.</p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">network_dict</span><span class="p">[</span><span class="s1">&#39;corneto_network&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_corneto_carnival</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="p">,</span> <span class="n">betaWeight</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;GUROBI&#39;</span><span class="p">)</span>
+<span class="n">network_dict</span><span class="p">[</span><span class="s1">&#39;shortest_paths&#39;</span><span class="p">],</span> <span class="n">shortest_paths</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_shortest_paths</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="p">)</span>
+<span class="n">network_dict</span><span class="p">[</span><span class="s1">&#39;shortest_paths_sc&#39;</span><span class="p">],</span> <span class="n">shortest_paths_sc</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">shortest_paths</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="p">)</span>
+<span class="n">network_dict</span><span class="p">[</span><span class="s1">&#39;all_paths&#39;</span><span class="p">],</span> <span class="n">all_paths</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_all_paths</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="p">,</span> <span class="n">depth_cutoff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">network_dict</span><span class="p">[</span><span class="s1">&#39;all_paths_sc&#39;</span><span class="p">],</span> <span class="n">all_paths_sc</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_sign_consistency</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">all_paths</span><span class="p">,</span> <span class="n">source_dict</span><span class="p">,</span> <span class="n">target_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="3.-Evaluation-using-sensitivity-to-perturbation">
+<h2>3. Evaluation using sensitivity to perturbation<a class="headerlink" href="#3.-Evaluation-using-sensitivity-to-perturbation" title="Link to this heading"></a></h2>
+<p>Finally, we can assess whether these networks contain a differential share of highly sensitive nodes, which will be our evaluation metric. For more information, please check the <a class="reference external" href="../benchmarks.html#phosphorylation-sensitivity-to-drug-perturbation">Evaluation strategies details page</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ec50_eval_results</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_metric_from_networks</span><span class="p">(</span><span class="n">network_dict</span><span class="p">,</span> <span class="n">nc</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">get_ec50_evaluation</span><span class="p">,</span> <span class="n">ec50_dict</span><span class="o">=</span><span class="n">ec50_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">plot_scatter</span><span class="p">(</span>
+    <span class="n">ec50_eval_results</span><span class="p">,</span>
+    <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;diff_EC50&#39;</span><span class="p">,</span>
+    <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;coverage&#39;</span><span class="p">,</span>
+    <span class="n">size_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">hue_col</span><span class="o">=</span><span class="s1">&#39;method&#39;</span><span class="p">,</span>
+    <span class="n">numeric_cols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">style_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Difference in average -log(EC50) scores&#39;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Coverage&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Coverage vs Difference in average sensitivity scores&#39;</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_4_evaluation_decryptm_40_0.png" src="../_images/vignettes_4_evaluation_decryptm_40_0.png" />
+</div>
+</div>
+<p>Both corneto and shortest paths + sign consistency had the highest difference between EC50 values of nodes included and excluded of the solution networks. In addition, the corneto network has almost double coverage than the rest of the networks. Therefore, we would consider the corneto network a better performer, taking both dimensions into account.</p>
+<p>That was it! Here, we used phosphoproteomics to infer mechanistic explanations of sensitivity changes in transcription factors, and then we used the same sensitivity information to evaluate the different methodologies. In our next vignette, we will explore the usage of multiomics in another evaluation setting. Bye!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_evaluation_offt_path.html" class="btn btn-neutral float-left" title="Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_cptac_phosphoactivity.html" class="btn btn-neutral float-right" title="Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

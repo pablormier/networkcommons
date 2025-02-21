@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.compute\_ppr\_overlap
+
+networkcommons.methods.compute\_ppr\_overlap
+============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: compute_ppr_overlap

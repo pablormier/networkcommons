@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.convert\_ensembl\_to\_gene\_symbol
+
+networkcommons.data.omics.convert\_ensembl\_to\_gene\_symbol
+============================================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: convert_ensembl_to_gene_symbol

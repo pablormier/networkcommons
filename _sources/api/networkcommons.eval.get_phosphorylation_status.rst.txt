@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_phosphorylation\_status
+
+networkcommons.eval.get\_phosphorylation\_status
+================================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_phosphorylation_status

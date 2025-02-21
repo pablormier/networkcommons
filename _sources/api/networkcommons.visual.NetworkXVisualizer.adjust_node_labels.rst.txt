@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.NetworkXVisualizer.adjust\_node\_labels
+
+networkcommons.visual.NetworkXVisualizer.adjust\_node\_labels
+=============================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: NetworkXVisualizer.adjust_node_labels

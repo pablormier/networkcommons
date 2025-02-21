@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignette A: recursive propagation with MOON &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vignette B: Pertpy bridging to NetworkCommons" href="B_pertpy.html" />
+    <link rel="prev" title="Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations" href="5_cptac_phosphoactivity.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guidelines/guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette A: recursive propagation with MOON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Input-preparation">1. Input preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-Network-compression">2. Network compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3.-MOON-scoring">3. MOON scoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#4.-Decompression-and-solution-network">4. Decompression and solution network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vignette A: recursive propagation with MOON</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/vignettes/A_moon.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Vignette-A:-recursive-propagation-with-MOON">
+<h1>Vignette A: recursive propagation with MOON<a class="headerlink" href="#Vignette-A:-recursive-propagation-with-MOON" title="Link to this heading"></a></h1>
+<p>In this vignette, we are going to use MOON:</p>
+<blockquote>
+<div><p>Dugourd et al., Modeling causal signal propagation in multi-omic factor space with COSMOS. <em>bioRxiv (2024)</em>. <a class="reference external" href="https://doi.org/10.1101/2024.07.15.603538">https://doi.org/10.1101/2024.07.15.603538</a></p>
+</div></blockquote>
+<p>to iteratively compute enrichment scores for a prior knowledge network, taking metabolic measurements and signalling cascades as inputs.</p>
+<p>This is the python version of the MOON workflow detailed in this <a class="reference external" href="https://saezlab.github.io/cosmosR/articles/NCI60_tutorial.html">R vignette</a> within the package CosmosR. For more information, please check the <a class="reference external" href="../methods.html#moon">MOON section</a> in the Methods details and the <a class="reference external" href="https://doi.org/10.15252/msb.20209730">original CosmosR paper</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+<span class="kn">import</span> <span class="nn">decoupler</span> <span class="k">as</span> <span class="nn">dc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="1.-Input-preparation">
+<h2>1. Input preparation<a class="headerlink" href="#1.-Input-preparation" title="Link to this heading"></a></h2>
+<p>We first import the COSMOS network, including signalling, gene regulatory and metabolic networks.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_network_df</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_cosmos_pkn</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">meta_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">network_from_df</span><span class="p">(</span><span class="n">meta_network_df</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we aim to remove self-interactions, calculate the mean interaction values for duplicated source-target pairs, and keep only interactions with values of 1 or -1.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">meta_network_cleanup</span><span class="p">(</span><span class="n">meta_network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this notebook, we will use data from the NCI60 Human Tumor Cell Lines Screen. We will use the cell line 706-0. To have an overview of the cell lines, we can run <code class="docutils literal notranslate"><span class="pre">nc.data.omics.nci60_datasets()</span></code>. For more information, please check the <a class="reference external" href="../datasets.html#nci60">NCI60 details page</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_datasets</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cell_line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>786-0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A498</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A549_ATCC</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ACHN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BT-549</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>This resource contains three different types of data: transcriptomics, TF activity estimates and metabolic information.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_datatypes</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TF_scores</td>
+      <td>TF scores</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RNA</td>
+      <td>RNA expression</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>metabolomic</td>
+      <td>metabolomic data</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>We can get measurements for different subnetworks within the cosmos network:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_df</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_table</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;786-0&#39;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;TF_scores&#39;</span><span class="p">)</span>
+<span class="n">rna_df</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_table</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;786-0&#39;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;RNA&#39;</span><span class="p">)</span>
+<span class="n">metab_df</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_table</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;786-0&#39;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;metabolomic&#39;</span><span class="p">)</span>
+
+<span class="n">sig_input</span> <span class="o">=</span> <span class="n">sig_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">rna_input</span> <span class="o">=</span> <span class="n">rna_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">metab_input</span> <span class="o">=</span> <span class="n">metab_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the metabolites, we add the compartment they are located in. We also remove those genes that do not apear in the PKN.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metab_input</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">prepare_metab_inputs</span><span class="p">(</span><span class="n">metab_input</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">filter_pkn_expressed_genes</span><span class="p">(</span><span class="n">rna_input</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">meta_network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We filter out those inputs that cannot be mapped to the prior knowledge network.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_input</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">filter_input_nodes_not_in_pkn</span><span class="p">(</span><span class="n">sig_input</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">)</span>
+<span class="n">meta_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">keep_controllable_neighbours</span><span class="p">(</span><span class="n">sig_input</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">)</span>
+<span class="n">metab_input</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">filter_input_nodes_not_in_pkn</span><span class="p">(</span><span class="n">metab_input</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">)</span>
+<span class="n">meta_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">keep_observable_neighbours</span><span class="p">(</span><span class="n">metab_input</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">)</span>
+<span class="n">sig_input</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">filter_input_nodes_not_in_pkn</span><span class="p">(</span><span class="n">sig_input</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="2.-Network-compression">
+<h2>2. Network compression<a class="headerlink" href="#2.-Network-compression" title="Link to this heading"></a></h2>
+<p>Now, we will compress the network to reduce the dimensions of the problem and thus increase computational efficiency. For more information about how this is carried out, please check the dedicated <a class="reference external" href="../methods.html#network-compression">section</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_network_compressed</span><span class="p">,</span> <span class="n">signatures</span><span class="p">,</span> <span class="n">dup_parents</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">compress_same_children</span><span class="p">(</span><span class="n">meta_network</span><span class="p">,</span> <span class="n">sig_input</span><span class="p">,</span> <span class="n">metab_input</span><span class="p">)</span> <span class="c1"># equals R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We clean the network again in case some self loops arose.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_network_compressed</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">meta_network_cleanup</span><span class="p">(</span><span class="n">meta_network_compressed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="3.-MOON-scoring">
+<h2>3. MOON scoring<a class="headerlink" href="#3.-MOON-scoring" title="Link to this heading"></a></h2>
+<p>Now it is time to compute the MOON scores from the compressed network. The network has been compressed by around a third of its original size, which increases computational efficiency. We will use the metabolic inputs and the signalling inputs to compute the MOON scores. After each optimisation, we check the sign consistency of the MOON scores, and remove those edges that turn out to be incoherent (the real TF enrichment scores are compared against the computed MOON scores and the sign of the
+edge). If there are incoherent edges, the function computes the MOON scores on the reduced network. The loop continues until it reaches a maximum number of tries (in our example, 10) or there are no incoherent edges left (more details <a class="reference external" href="../methods.html#moon-scoring">here</a>).</p>
+<p>We can get now the GRN from DoRothEA, filtering by levels of confidence A and B.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_regn</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">get_dorothea</span><span class="p">(</span><span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_network</span> <span class="o">=</span> <span class="n">meta_network_compressed</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_res</span><span class="p">,</span> <span class="n">moon_network</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">run_moon</span><span class="p">(</span>
+    <span class="n">meta_network_compressed</span><span class="p">,</span>
+    <span class="n">sig_input</span><span class="p">,</span>
+    <span class="n">metab_input</span><span class="p">,</span>
+    <span class="n">tf_regn</span><span class="p">,</span>
+    <span class="n">rna_input</span><span class="p">,</span>
+    <span class="n">n_layers</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ulm&#39;</span><span class="p">,</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="4.-Decompression-and-solution-network">
+<h2>4. Decompression and solution network<a class="headerlink" href="#4.-Decompression-and-solution-network" title="Link to this heading"></a></h2>
+<p>Once the MOON scores are computed, we need to restore the uncompressed nodes that were compressed in section 2. For this, we will use the signatures that we obtained when we compressed the network to map back the original nodes to the compressed ones. After that, we can retrieve a solution network that contains the nodes (with the subsequent MOON scores) that are in the vicinity of the signalling input(s) and are sign consistent in terms of signed interactions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moon_res_dec</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">decompress_moon_result</span><span class="p">(</span><span class="n">moon_res</span><span class="p">,</span> <span class="n">signatures</span><span class="p">,</span> <span class="n">dup_parents</span><span class="p">,</span> <span class="n">meta_network_compressed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we perform the decompression of the network, mapping the compressed nodes to their original components.</p>
+<p>FInally, we reduce the solution network by removing incoherent edges and filtering for nodes with moon scores higher than 1. We retrieve a networkx.DiGraph that we will visualise, and an attributes dataframe with the moon scores.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_network</span><span class="p">,</span> <span class="n">att</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">reduce_solution_network</span><span class="p">(</span><span class="n">moon_res_dec</span><span class="p">,</span> <span class="n">meta_network</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sig_input</span><span class="p">,</span> <span class="n">rna_input</span><span class="p">)</span> <span class="c1"># equals R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can visualise the 10 nodes with highest (absolute) score:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_nodes</span> <span class="o">=</span> <span class="n">att</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">lollipop_plot</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">top_nodes</span><span class="p">,</span>
+    <span class="n">label_col</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">,</span>
+    <span class="n">value_col</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span>
+    <span class="n">label_gap</span><span class="o">=</span><span class="mf">0.03</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/vignettes_A_moon_37_0.png" src="../_images/vignettes_A_moon_37_0.png" />
+</div>
+</div>
+<p>As an optional step, we can translate the HMDB identifiers to more readable names (e.g HMDB0000122 is Glucose).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapping_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../../data/moon/hmdb_mapper_vec.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;HMDB_id&#39;</span><span class="p">)[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">translated_network</span><span class="p">,</span> <span class="n">att_translated</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">translate_res</span><span class="p">(</span><span class="n">res_network</span><span class="p">,</span> <span class="n">att</span><span class="p">,</span> <span class="n">mapping_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulted network can be used now for visualization purposes, or further studying of the topology can be conducted, as shown in Vignette 1. Since the network is quite big, it will not be shown in this notebook.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_cptac_phosphoactivity.html" class="btn btn-neutral float-left" title="Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="B_pertpy.html" class="btn btn-neutral float-right" title="Vignette B: Pertpy bridging to NetworkCommons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

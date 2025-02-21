@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.panacea\_datatypes
+
+networkcommons.data.omics.panacea\_datatypes
+============================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: panacea_datatypes

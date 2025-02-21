@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_ec50\_evaluation
+
+networkcommons.eval.get\_ec50\_evaluation
+=========================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_ec50_evaluation

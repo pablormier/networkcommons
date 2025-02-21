@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.run\_sign\_consistency
+
+networkcommons.methods.run\_sign\_consistency
+=============================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: run_sign_consistency

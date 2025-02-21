@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribution’s guideline: Methods &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contribution’s guideline: Evaluation strategies" href="guide_3_eval.html" />
+    <link rel="prev" title="Contribution’s guideline: Data" href="guide_1_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_1_data.html">Contribution’s guideline: Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contribution’s guideline: Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">1. Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">2. API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contribution’s guideline: Methods</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/guidelines/guide_2_methods.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contribution-s-guideline-methods">
+<h1>Contribution’s guideline: Methods<a class="headerlink" href="#contribution-s-guideline-methods" title="Link to this heading"></a></h1>
+<p>Thank you very much for considering contributing to the methods collection of <strong>NetworkCommons</strong>! For methods, it is especially important that inputs and outputs are
+compatible with the rest of the package, the purpose is stated and the assumptions of the method are clear.</p>
+<section id="documentation">
+<h2>1. Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>In the <a class="reference internal" href="../methods.html"><span class="doc">./docs/src/methods.rst file</span></a>, contributors should add:</p>
+<ul class="simple">
+<li><p>The description of the method</p></li>
+<li><p>A figure showcasing the basics (if possible)</p></li>
+<li><p>Input/output definition</p></li>
+<li><p>Link to publication and repository (if available)</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">Shortest path</span>
+<span class="gh">-------------</span>
+
+The shortest path is an algorithm for finding one or multiple paths that minimize the distance from a set of starting nodes to a set of destination nodes in a weighted graph (https://doi.org/10.1007/BF01386390).
+
+<span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+
+   &lt;object type=&quot;image/svg+xml&quot; data=&quot;_static/nc_sp.svg&quot; width=&quot;1000px&quot;&gt;&lt;/object&gt;
+
+   
+<span class="gs">**Input:**</span> Set of source and target nodes, (weighted) network graph
+
+<span class="gs">**Node weights:**</span> w(v) = 1
+
+<span class="gs">**Edge weights:**</span> 0 ≤ w(e) ≤ 1
+
+<span class="gs">**Functions:**</span> See API documentation for <span class="na">:ref:</span><span class="nv">`Topological methods &lt;api-topological&gt;`</span>.
+</pre></div>
+</div>
+<p>Functions should be documented using <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google style Python docstrings</a>.</p>
+<p>In <a class="reference internal" href="../api.html"><span class="doc">./docs/src/api.rst file</span></a>, contributors should add a new documentation module that contains the new classes/functions implemented:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">Topological methods</span>
+<span class="gh">~~~~~~~~~~~~~~~~~~~</span>
+<span class="p">..</span> <span class="ow">module</span><span class="p">::</span>networkcommons.methods
+<span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> networkcommons
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+    <span class="nc">:toctree:</span> api
+    <span class="nc">:recursive:</span>
+
+    methods.run_shortest_paths
+    methods.run_sign_consistency
+    methods.run_reachability_filter
+    methods.run_all_paths
+    methods.compute_all_paths
+</pre></div>
+</div>
+</section>
+<section id="api">
+<h2>2. API<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Every new method should be implemented in a separate file (e.g <cite>_moon.py</cite>) inside <cite>/networkcommons/methods/</cite>.</p></li>
+<li><p>Contributors can then implement their own set of functionalities and expose those necessary to the public API via the <cite>__all__</cite> variable (see other files for examples).</p></li>
+<li><p>The input of the overall pipeline must be at least a <cite>Network</cite> object, and its overall output should return at least a <cite>Network</cite> object containing the contextualised network.</p></li>
+</ul>
+<p>This does not apply to intermediate functions (e.g <cite>Network</cite> –function 1–&gt; <cite>pd.DataFrame</cite> –function 2–&gt; <cite>Network</cite>) in case of a pipeline containing several functions, such as MOON.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="guide_1_data.html" class="btn btn-neutral float-left" title="Contribution’s guideline: Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guide_3_eval.html" class="btn btn-neutral float-right" title="Contribution’s guideline: Evaluation strategies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

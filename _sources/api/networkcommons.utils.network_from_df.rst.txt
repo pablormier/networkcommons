@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.network\_from\_df
+
+networkcommons.utils.network\_from\_df
+======================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: network_from_df

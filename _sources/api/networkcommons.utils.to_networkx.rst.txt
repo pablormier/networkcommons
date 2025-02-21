@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.to\_networkx
+
+networkcommons.utils.to\_networkx
+=================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: to_networkx

@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.YFilesVisualizer.custom\_label\_styles\_mapping
+
+networkcommons.visual.YFilesVisualizer.custom\_label\_styles\_mapping
+=====================================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: YFilesVisualizer.custom_label_styles_mapping

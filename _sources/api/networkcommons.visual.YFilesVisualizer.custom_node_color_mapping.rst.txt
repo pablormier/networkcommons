@@ -1,0 +1,8 @@
+:github_url: networkcommons.visual.YFilesVisualizer.custom\_node\_color\_mapping
+
+networkcommons.visual.YFilesVisualizer.custom\_node\_color\_mapping
+===================================================================
+
+.. currentmodule:: networkcommons.visual
+
+.. automethod:: YFilesVisualizer.custom_node_color_mapping

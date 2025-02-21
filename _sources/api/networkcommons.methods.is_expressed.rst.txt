@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.is\_expressed
+
+networkcommons.methods.is\_expressed
+====================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: is_expressed

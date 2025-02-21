@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribution’s guideline: Data &mdash; NetworkCommons alpha documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=2155bac8" />
+
+  
+    <link rel="shortcut icon" href="../_static/nc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=1f169f65"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contribution’s guideline: Methods" href="guide_2_methods.html" />
+    <link rel="prev" title="General guidelines for contribution" href="landing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../_static/nc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Bridging the gap between data, methods and knowledge in the network inference field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Details</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribution guidelines</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="landing.html">General guidelines for contribution</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contribution’s guideline: Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Data-information">1. Data information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#2.-API">2. API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_2_methods.html">Contribution’s guideline: Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_3_eval.html">Contribution’s guideline: Evaluation strategies</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vignettes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/1_quickstart.html">Vignette 1: Introduction to NetworkCommons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/2_multiple_methods.html">Vignette 2: Using multiple methods to infer the networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/3_evaluation_offt_path.html">Vignette 3: Evaluating methods under two scenarios: offtarget recovery and pathway activity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/4_evaluation_decryptm.html">Vignette 4: Sensitive response to drug perturbation using phosphoproteomics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/5_cptac_phosphoactivity.html">Vignette 5: Multi-omics validation - Recovery of dysregulated kinases in response to cancer mutations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/A_moon.html">Vignette A: recursive propagation with MOON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/B_pertpy.html">Vignette B: Pertpy bridging to NetworkCommons</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">NetworkCommons</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contribution’s guideline: Data</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/saezlab/networkcommons/blob/master/docs/src/guidelines/guide_1_data.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Contribution's-guideline:-Data">
+<h1>Contribution’s guideline: Data<a class="headerlink" href="#Contribution's-guideline:-Data" title="Link to this heading"></a></h1>
+<p>Thank you very much for considering contributing to the data collection of <strong>NetworkCommons</strong>! In order to make the resource as user-friendly as possible, we aim to be as transparent as possible, which means that all contributions should contain at least the following elements. For other examples, see <a class="reference external" href="../datasets.html">the Datasets details.</a></p>
+<section id="1.-Data-information">
+<h2>1. Data information<a class="headerlink" href="#1.-Data-information" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Experimental design: number of samples, number of experiments (if applicable), confounding factors</p></li>
+<li><p>Data production and processing: tools used, how the data processing was performed (if applicable).</p></li>
+<li><p>Files: number and type of files, with a small description of their contents.</p></li>
+<li><p>Link to the database from which the data was retrieved.</p></li>
+<li><p>Link to the dataset publication</p></li>
+<li><p>Path information explaining the structure of the data directories This information should be appended to the existing YAML file in <code class="docutils literal notranslate"><span class="pre">networkcommons/data/datasets.yaml</span></code></p></li>
+</ul>
+<p>An example of this can be found below:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NCI60:
+    name: NCI60
+    description: NCI-60 cell line data
+    publication_link: https://doi.org/10.1038/nrc1951
+    detailed_description: &gt;-
+        This dataset contains data from the NCI-60 cell line panel.
+        It includes three files: TF activities from transcriptomics data,
+        metabolite abundances and gene reads.
+    path: NCI60/{cell_line}/{cell_line}__{data_type}.tsv
+</pre></div>
+</div>
+<p>This information can then be accessed via <code class="docutils literal notranslate"><span class="pre">nc.data.omics.datasets()</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">datasets</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>description</th>
+      <th>publication_link</th>
+      <th>detailed_description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>decryptm</th>
+      <td>DecryptM</td>
+      <td>Drug perturbation proteomics and phosphoproteomics data</td>
+      <td>https://doi.org/10.1126/science.ade3925</td>
+      <td>This dataset contains the profiling of 31 cancer drugs in 13 human cancer cell line models resulted in 1.8 million dose-response curves, including 47,502 regulated phosphopeptides, 7316 ubiquitinylated peptides, and 546 regulated acetylated peptides.</td>
+    </tr>
+    <tr>
+      <th>panacea</th>
+      <td>Panacea</td>
+      <td>Pancancer Analysis of Chemical Entity Activity RNA-Seq data</td>
+      <td>https://doi.org/10.1016/j.xcrm.2021.100492</td>
+      <td>PANACEA contains dose-response and perturbational profiles for 32 kinase inhibitors in 11 cancer cell lines, in addition to a DMSO control. Originally, this resource served as the basis for a DREAM Challenge assessing the accuracy and sensitivity of computational algorithms for de novo drug polypharmacology predictions.</td>
+    </tr>
+    <tr>
+      <th>CPTAC</th>
+      <td>CPTAC</td>
+      <td>Clinical Proteomic Tumor Analysis Consortium data</td>
+      <td>https://doi.org/10.1158/2159-8290.CD-13-0219</td>
+      <td>This dataset contains data from the Clinical Proteomic Tumor Analysis Consortium. It includes various cancer types and proteomic data.</td>
+    </tr>
+    <tr>
+      <th>NCI60</th>
+      <td>NCI60</td>
+      <td>NCI-60 cell line data</td>
+      <td>https://doi.org/10.1038/nrc1951</td>
+      <td>This dataset contains data from the NCI-60 cell line panel. It includes three files: TF activities from transcriptomics data, metabolite abundances and gene reads.</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="2.-API">
+<h2>2. API<a class="headerlink" href="#2.-API" title="Link to this heading"></a></h2>
+<p>The data will either be deposited in the <a class="reference external" href="https://commons.omnipathdb.org/">NetworkCommons server</a>, or can be directly accessed from the original source. Regardless of this, the following functions are required</p>
+<ul class="simple">
+<li><p>A function providing an overview of the subsets (if applicable). For example, check <code class="docutils literal notranslate"><span class="pre">nc.data.omics.decryptm_experiments()</span></code>.</p></li>
+<li><p>In case the data contains different files (for example, different omics layers, metadata tables, etc.), a function should retrieve this information. For example, check <code class="docutils literal notranslate"><span class="pre">nc.data.omics.nci60_datatypes()</span></code></p></li>
+<li><p>A function that retrieves the data. For example, check <code class="docutils literal notranslate"><span class="pre">nc.data.omics.nci60_table()</span></code>. Ideally, a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>, but we are planning to expand support for <code class="docutils literal notranslate"><span class="pre">AnnData</span></code> instances.</p></li>
+</ul>
+<p>These new functions can be implemented in a new file, <code class="docutils literal notranslate"><span class="pre">_{dataset}</span></code>, inside the <code class="docutils literal notranslate"><span class="pre">networkcommons/data/omics/</span></code> folder.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">nc.data.omics.nci60_table()</span></code> retrieves a single <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> by providing a data type and a cell line.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">omics</span><span class="o">.</span><span class="n">nci60_table</span><span class="p">(</span><span class="n">cell_line</span><span class="o">=</span><span class="s1">&#39;A498&#39;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;RNA&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>WASH7P</td>
+      <td>-2.109966</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NOC2L</td>
+      <td>-1.480194</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>HES4</td>
+      <td>-0.781522</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ISG15</td>
+      <td>0.406806</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AGRN</td>
+      <td>-0.324970</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="landing.html" class="btn btn-neutral float-left" title="General guidelines for contribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="guide_2_methods.html" class="btn btn-neutral float-right" title="Contribution’s guideline: Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.filter\_pkn\_expressed\_genes
+
+networkcommons.methods.filter\_pkn\_expressed\_genes
+====================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: filter_pkn_expressed_genes

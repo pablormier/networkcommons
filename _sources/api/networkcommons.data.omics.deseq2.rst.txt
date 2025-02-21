@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.deseq2
+
+networkcommons.data.omics.deseq2
+================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: deseq2

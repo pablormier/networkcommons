@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.get\_subnetwork
+
+networkcommons.utils.get\_subnetwork
+====================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: get_subnetwork

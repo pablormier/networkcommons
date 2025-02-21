@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.methods.keep\_controllable\_neighbours
+
+networkcommons.methods.keep\_controllable\_neighbours
+=====================================================
+
+.. currentmodule:: networkcommons.methods
+
+.. autofunction:: keep_controllable_neighbours

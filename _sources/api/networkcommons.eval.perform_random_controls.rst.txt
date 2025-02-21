@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.perform\_random\_controls
+
+networkcommons.eval.perform\_random\_controls
+=============================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: perform_random_controls

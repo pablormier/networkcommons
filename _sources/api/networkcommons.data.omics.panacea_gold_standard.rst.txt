@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.panacea\_gold\_standard
+
+networkcommons.data.omics.panacea\_gold\_standard
+=================================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: panacea_gold_standard

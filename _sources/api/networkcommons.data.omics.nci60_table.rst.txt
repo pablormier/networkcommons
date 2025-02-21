@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.nci60\_table
+
+networkcommons.data.omics.nci60\_table
+======================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: nci60_table

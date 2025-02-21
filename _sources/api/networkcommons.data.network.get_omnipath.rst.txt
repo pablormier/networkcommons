@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.network.get\_omnipath
+
+networkcommons.data.network.get\_omnipath
+=========================================
+
+.. currentmodule:: networkcommons.data.network
+
+.. autofunction:: get_omnipath

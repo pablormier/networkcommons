@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.cptac\_fileinfo
+
+networkcommons.data.omics.cptac\_fileinfo
+=========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: cptac_fileinfo

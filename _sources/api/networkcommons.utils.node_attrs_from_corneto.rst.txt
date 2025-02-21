@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.utils.node\_attrs\_from\_corneto
+
+networkcommons.utils.node\_attrs\_from\_corneto
+===============================================
+
+.. currentmodule:: networkcommons.utils
+
+.. autofunction:: node_attrs_from_corneto

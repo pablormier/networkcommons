@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.eval.get\_mean\_degree
+
+networkcommons.eval.get\_mean\_degree
+=====================================
+
+.. currentmodule:: networkcommons.eval
+
+.. autofunction:: get_mean_degree

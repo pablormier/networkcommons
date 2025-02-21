@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.scperturb
+
+networkcommons.data.omics.scperturb
+===================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: scperturb

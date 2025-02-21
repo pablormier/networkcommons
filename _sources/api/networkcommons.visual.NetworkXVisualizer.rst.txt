@@ -1,0 +1,39 @@
+﻿:github_url: networkcommons.visual.NetworkXVisualizer
+
+networkcommons.visual.NetworkXVisualizer
+========================================
+
+.. currentmodule:: networkcommons.visual
+
+.. add toctree option to make autodoc generate the pages
+
+.. autoclass:: NetworkXVisualizer
+
+     
+     
+     
+
+     
+     
+     
+
+     
+     
+     .. rubric:: Methods
+
+     .. autosummary::
+          :toctree: .
+          :recursive:
+     
+          ~networkcommons.visual.NetworkXVisualizer.adjust_node_labels
+          ~networkcommons.visual.NetworkXVisualizer.color_edges
+          ~networkcommons.visual.NetworkXVisualizer.color_nodes
+          ~networkcommons.visual.NetworkXVisualizer.set_custom_edge_colors
+          ~networkcommons.visual.NetworkXVisualizer.set_custom_style
+          ~networkcommons.visual.NetworkXVisualizer.visualize
+          ~networkcommons.visual.NetworkXVisualizer.visualize_network
+          ~networkcommons.visual.NetworkXVisualizer.visualize_network_default
+          ~networkcommons.visual.NetworkXVisualizer.visualize_network_sign_consistent
+          ~networkcommons.visual.NetworkXVisualizer.visualize_network_simple
+     
+     

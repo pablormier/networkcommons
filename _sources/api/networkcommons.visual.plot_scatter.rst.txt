@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.plot\_scatter
+
+networkcommons.visual.plot\_scatter
+===================================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: plot_scatter

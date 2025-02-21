@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.visual.plot\_pca
+
+networkcommons.visual.plot\_pca
+===============================
+
+.. currentmodule:: networkcommons.visual
+
+.. autofunction:: plot_pca
