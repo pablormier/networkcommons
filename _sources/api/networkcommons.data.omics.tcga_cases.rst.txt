@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.tcga\_cases
+
+networkcommons.data.omics.tcga\_cases
+=====================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: tcga_cases

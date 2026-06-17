@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.tcga\_projects
+
+networkcommons.data.omics.tcga\_projects
+========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: tcga_projects

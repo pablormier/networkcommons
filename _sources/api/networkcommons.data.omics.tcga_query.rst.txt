@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.tcga\_query
+
+networkcommons.data.omics.tcga\_query
+=====================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: tcga_query

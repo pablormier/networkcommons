@@ -146,6 +146,17 @@
 <li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.nci60_table.html">networkcommons.data.omics.nci60_table</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#tcga">TCGA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_projects.html">networkcommons.data.omics.tcga_projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_cases.html">networkcommons.data.omics.tcga_cases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_files.html">networkcommons.data.omics.tcga_files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_datatypes.html">networkcommons.data.omics.tcga_datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_table.html">networkcommons.data.omics.tcga_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_rppa_files.html">networkcommons.data.omics.tcga_rppa_files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_download.html">networkcommons.data.omics.tcga_download</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.tcga_query.html">networkcommons.data.omics.tcga_query</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#phospho-egf-meta-analysis">Phospho-EGF meta-analysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_datatypes.html">networkcommons.data.omics.phospho_egf_datatypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/networkcommons.data.omics.phospho_egf_tables.html">networkcommons.data.omics.phospho_egf_tables</a></li>
@@ -497,6 +508,37 @@
 </tbody>
 </table>
 </section>
+<section id="tcga">
+<span id="api-tcga"></span><h3>TCGA<a class="headerlink" href="#tcga" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_projects.html#networkcommons.data.omics.tcga_projects" title="networkcommons.data.omics.tcga_projects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_projects</span></code></a>([size])</p></td>
+<td><p>List TCGA projects from GDC.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_cases.html#networkcommons.data.omics.tcga_cases" title="networkcommons.data.omics.tcga_cases"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_cases</span></code></a>([project_id, fields, ...])</p></td>
+<td><p>List TCGA cases from GDC.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_files.html#networkcommons.data.omics.tcga_files" title="networkcommons.data.omics.tcga_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_files</span></code></a>([project_id, ...])</p></td>
+<td><p>List open-access TCGA files from GDC.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_datatypes.html#networkcommons.data.omics.tcga_datatypes" title="networkcommons.data.omics.tcga_datatypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_datatypes</span></code></a>()</p></td>
+<td><p>Common open TCGA data types available through GDC.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_table.html#networkcommons.data.omics.tcga_table" title="networkcommons.data.omics.tcga_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_table</span></code></a>(file_id[, sep])</p></td>
+<td><p>One TCGA data table from GDC.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_rppa_files.html#networkcommons.data.omics.tcga_rppa_files" title="networkcommons.data.omics.tcga_rppa_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_rppa_files</span></code></a>([project_id, ...])</p></td>
+<td><p>List open-access TCGA RPPA files from GDC.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_download.html#networkcommons.data.omics.tcga_download" title="networkcommons.data.omics.tcga_download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_download</span></code></a>(file_id[, path])</p></td>
+<td><p>Download one open-access GDC file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/networkcommons.data.omics.tcga_query.html#networkcommons.data.omics.tcga_query" title="networkcommons.data.omics.tcga_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.omics.tcga_query</span></code></a>(endpoint[, filters, ...])</p></td>
+<td><p>Query a GDC search endpoint and return normalized hits.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="phospho-egf-meta-analysis">
 <span id="api-phosphoegf"></span><h3>Phospho-EGF meta-analysis<a class="headerlink" href="#phospho-egf-meta-analysis" title="Link to this heading"></a></h3>
 <table class="autosummary longtable docutils align-default">
@@ -680,7 +722,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, NetworkCommons developers.</p>
+    <p>&#169; Copyright 2026, NetworkCommons developers.</p>
   </div>
 
    

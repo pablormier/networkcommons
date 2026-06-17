@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.tcga\_datatypes
+
+networkcommons.data.omics.tcga\_datatypes
+=========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: tcga_datatypes

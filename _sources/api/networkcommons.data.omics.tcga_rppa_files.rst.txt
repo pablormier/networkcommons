@@ -1,0 +1,8 @@
+﻿:github_url: networkcommons.data.omics.tcga\_rppa\_files
+
+networkcommons.data.omics.tcga\_rppa\_files
+===========================================
+
+.. currentmodule:: networkcommons.data.omics
+
+.. autofunction:: tcga_rppa_files

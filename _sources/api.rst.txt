@@ -209,6 +209,26 @@ NCI60
     data.omics.nci60_datatypes
     data.omics.nci60_table
 
+.. _api-tcga:
+
+TCGA
+~~~~
+.. module::networkcommons.data.omics
+.. currentmodule:: networkcommons
+
+.. autosummary::
+    :toctree: api
+    :recursive:
+
+    data.omics.tcga_projects
+    data.omics.tcga_cases
+    data.omics.tcga_files
+    data.omics.tcga_datatypes
+    data.omics.tcga_table
+    data.omics.tcga_rppa_files
+    data.omics.tcga_download
+    data.omics.tcga_query
+
 .. _api-phosphoegf:
 
 Phospho-EGF meta-analysis
