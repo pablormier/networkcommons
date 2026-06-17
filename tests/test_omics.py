@@ -2,6 +2,7 @@ import pytest
 
 import pandas as pd
 import anndata as ad
+import requests
 
 from networkcommons.data.omics import _common
 from networkcommons.data import omics
@@ -855,6 +856,177 @@ def test_cptac_extend_dataframe():
     })
 
     pd.testing.assert_frame_equal(extended_df, expected_df)
+
+
+@patch('networkcommons.data.omics._tcga._common._requests_session')
+def test_tcga_query(mock_session):
+    resp = MagicMock()
+    resp.json.return_value = {'data': {'hits': [{'id': 'file1', 'cases': [{'case_id': 'case1'}]}]}}
+    mock_session.return_value.post.return_value = resp
+
+    df = omics.tcga_query('files', fields=['id', 'cases.case_id'], size=1, from_=2)
+
+    mock_session.return_value.post.assert_called_once_with(
+        'https://api.gdc.cancer.gov/files',
+        json={
+            'format': 'JSON',
+            'size': 1,
+            'from': 2,
+            'fields': 'id,cases.case_id',
+        },
+    )
+    resp.raise_for_status.assert_called_once()
+    assert df.loc[0, 'id'] == 'file1'
+
+
+@patch('networkcommons.data.omics._tcga.tcga_query')
+def test_tcga_projects(mock_query):
+    omics.tcga_projects(size=10)
+
+    mock_query.assert_called_once_with(
+        'projects',
+        filters={'op': '=', 'content': {'field': 'program.name', 'value': ['TCGA']}},
+        size=10,
+    )
+
+
+@patch('networkcommons.data.omics._tcga.tcga_query')
+def test_tcga_cases(mock_query):
+    omics.tcga_cases(project_id=['TCGA-BRCA', 'TCGA-LUAD'], fields='case_id', size=5, from_=3)
+
+    mock_query.assert_called_once_with(
+        'cases',
+        filters={
+            'op': 'and',
+            'content': [
+                {'op': '=', 'content': {'field': 'cases.project.program.name', 'value': ['TCGA']}},
+                {'op': 'in', 'content': {'field': 'project.project_id', 'value': ['TCGA-BRCA', 'TCGA-LUAD']}},
+            ],
+        },
+        fields='case_id',
+        size=5,
+        from_=3,
+    )
+
+
+@patch('networkcommons.data.omics._tcga.tcga_query')
+def test_tcga_files_open_access_filter(mock_query):
+    omics.tcga_files(
+        project_id='TCGA-BRCA',
+        data_category='Transcriptome Profiling',
+        data_type='Gene Expression Quantification',
+        experimental_strategy='RNA-Seq',
+        workflow_type='STAR - Counts',
+        fields=['file_id', 'file_name'],
+    )
+
+    mock_query.assert_called_once_with(
+        'files',
+        filters={
+            'op': 'and',
+            'content': [
+                {'op': '=', 'content': {'field': 'cases.project.program.name', 'value': ['TCGA']}},
+                {'op': '=', 'content': {'field': 'cases.project.project_id', 'value': ['TCGA-BRCA']}},
+                {'op': '=', 'content': {'field': 'access', 'value': ['open']}},
+                {'op': '=', 'content': {'field': 'data_category', 'value': ['Transcriptome Profiling']}},
+                {'op': '=', 'content': {'field': 'data_type', 'value': ['Gene Expression Quantification']}},
+                {'op': '=', 'content': {'field': 'experimental_strategy', 'value': ['RNA-Seq']}},
+                {'op': '=', 'content': {'field': 'analysis.workflow_type', 'value': ['STAR - Counts']}},
+            ],
+        },
+        fields=['file_id', 'file_name'],
+        size=100,
+        from_=0,
+    )
+
+
+def test_tcga_datatypes():
+    dtypes = omics.tcga_datatypes()
+
+    assert isinstance(dtypes, pd.DataFrame)
+    assert {'data_type', 'data_category', 'experimental_strategy', 'description'} <= set(dtypes.columns)
+    assert 'rppa' in dtypes['type'].tolist()
+
+
+@patch('networkcommons.data.omics._tcga._conf.get')
+@patch('networkcommons.data.omics._tcga.tcga_download')
+def test_tcga_table(mock_download, mock_conf_get, tmp_path):
+    path = tmp_path / 'rppa.tsv'
+    path.write_text(
+        'AGID\tpeptide_target\tprotein_expression\n'
+        'AGID00100\t1433BETA\t0.10255\n'
+    )
+    mock_conf_get.return_value = str(tmp_path)
+    mock_download.return_value = str(path)
+
+    df = omics.tcga_table('file-id')
+
+    mock_download.assert_called_once_with('file-id', path=str(tmp_path))
+    assert df.loc[0, 'peptide_target'] == '1433BETA'
+    assert df.loc[0, 'protein_expression'] == 0.10255
+
+
+@patch('networkcommons.data.omics._tcga.tcga_files')
+def test_tcga_rppa_files(mock_files):
+    omics.tcga_rppa_files(project_id='TCGA-OV', fields=['file_id'], size=5, from_=1)
+
+    mock_files.assert_called_once_with(
+        project_id='TCGA-OV',
+        data_category='Proteome Profiling',
+        data_type='Protein Expression Quantification',
+        experimental_strategy='Reverse Phase Protein Array',
+        fields=['file_id'],
+        size=5,
+        from_=1,
+    )
+
+
+@patch('networkcommons.data.omics._tcga._common._requests_session')
+def test_tcga_download_filename(mock_session, tmp_path):
+    resp = MagicMock()
+    resp.headers = {'Content-Disposition': 'attachment; filename="counts.tsv"'}
+    resp.iter_content.return_value = [b'a', b'b']
+    mock_session.return_value.get.return_value = resp
+
+    path = omics.tcga_download('file-id', path=str(tmp_path))
+
+    assert path == str(tmp_path / 'counts.tsv')
+    assert (tmp_path / 'counts.tsv').read_bytes() == b'ab'
+    mock_session.return_value.get.assert_called_once_with(
+        'https://api.gdc.cancer.gov/data/file-id',
+        stream=True,
+    )
+    resp.raise_for_status.assert_called_once()
+
+
+@patch('networkcommons.data.omics._tcga._common._requests_session')
+def test_tcga_download_fallback_filename(mock_session, tmp_path):
+    resp = MagicMock()
+    resp.headers = {}
+    resp.iter_content.return_value = [b'data']
+    mock_session.return_value.get.return_value = resp
+
+    path = omics.tcga_download('file-id', path=str(tmp_path))
+
+    assert path == str(tmp_path / 'file-id')
+    assert (tmp_path / 'file-id').read_bytes() == b'data'
+
+
+def test_tcga_query_invalid_endpoint():
+    with pytest.raises(ValueError):
+
+        omics.tcga_query('bad')
+
+
+@patch('networkcommons.data.omics._tcga._common._requests_session')
+def test_tcga_query_http_error(mock_session):
+    resp = MagicMock()
+    resp.raise_for_status.side_effect = requests.HTTPError('boom')
+    mock_session.return_value.post.return_value = resp
+
+    with pytest.raises(requests.HTTPError):
+
+        omics.tcga_query('files')
 
 
 @patch('networkcommons.data.omics._common._conf.get')
