@@ -87,7 +87,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="A_moon.html">Vignette A: recursive propagation with MOON</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Vignette B: Pertpy bridging to NetworkCommons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#1.-Processing-with-pertpy">1. Processing with pertpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#1.-Fetch-metadata-with-pertpy">1. Fetch metadata with pertpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#2.-TF-activity-estimation-with-decoupler-py">2. TF activity estimation with decoupler-py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#3.-Network-inference-with-NetworkCommons">3. Network inference with NetworkCommons</a></li>
 </ul>
@@ -121,9 +121,9 @@
   <section id="Vignette-B:-Pertpy-bridging-to-NetworkCommons">
 <h1>Vignette B: Pertpy bridging to NetworkCommons<a class="headerlink" href="#Vignette-B:-Pertpy-bridging-to-NetworkCommons" title="Link to this heading"></a></h1>
 <p>In this vignette, we showcase how the resources from pertpy can be used with NetworkCommons. Here, we will use part of the vignette <a class="reference external" href="https://pertpy.readthedocs.io/en/latest/tutorials/notebooks/mcfarland_use_case.html">Use-case: Deconvoluting drug responses in cancer cell lines</a>, available in the <a class="reference external" href="https://pertpy.readthedocs.org">pertpy documentation</a>. This dataset contains single-cell RNA-seq perturbational profiles from 172 cancer cell lines treated with 13 drugs. Due to computational
-power constrains, we will only showcase this with one cell line and one dataset. However, this can be expanded</p>
+power constrains, we will only showcase this with one cell line and one dataset. However, this approach can be easily expanded to several cell lines and datasets.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area docutils container">
@@ -131,22 +131,13 @@ power constrains, we will only showcase this with one cell line and one dataset.
 <span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkcommons</span> <span class="k">as</span> <span class="nn">nc</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="1.-Processing-with-pertpy">
-<h2>1. Processing with pertpy<a class="headerlink" href="#1.-Processing-with-pertpy" title="Link to this heading"></a></h2>
+<section id="1.-Fetch-metadata-with-pertpy">
+<h2>1. Fetch metadata with pertpy<a class="headerlink" href="#1.-Fetch-metadata-with-pertpy" title="Link to this heading"></a></h2>
 <p>This section was taken from the pertpy documentation, <a class="reference external" href="https://pertpy.readthedocs.io/en/latest/tutorials/notebooks/mcfarland_use_case.html">Use-case: Deconvoluting drug responses in cancer cell lines</a>. Please refer to this for further details.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -155,28 +146,6 @@ power constrains, we will only showcase this with one cell line and one dataset.
 <div class="input_area docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">mcfarland_2020</span><span class="p">()</span>
 <span class="n">adata</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span>
-    <span class="s2">&quot;adata.h5ad&quot;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="s2">&quot;adata.h5ad&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -808,7 +777,7 @@ INFO:root:Downloading data from `https://omnipathdb.org/about?format=text`
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/vignettes_B_pertpy_33_0.svg" src="../_images/vignettes_B_pertpy_33_0.svg" />
+<img alt="../_images/vignettes_B_pertpy_30_0.svg" src="../_images/vignettes_B_pertpy_30_0.svg" />
 </div>
 </div>
 </section>
